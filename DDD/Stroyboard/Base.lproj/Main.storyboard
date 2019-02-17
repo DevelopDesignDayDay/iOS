@@ -19,33 +19,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="f3i-Dr-IAr">
-                                <rect key="frame" x="35" y="94" width="305" height="439.5"/>
+                                <rect key="frame" x="35" y="101" width="305" height="445.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wsU-H8-hVh">
-                                        <rect key="frame" x="0.0" y="0.0" width="265.5" height="126.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="286" height="132.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반가워요 회원님" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CD5-4g-x0I">
-                                                <rect key="frame" x="0.0" y="0.0" width="163" height="31.5"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="176" height="33.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디디디 출석체크 앱입니다." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gt9-fd-YCK">
-                                                <rect key="frame" x="0.0" y="47.5" width="265.5" height="31.5"/>
-                                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="26"/>
+                                                <rect key="frame" x="0.0" y="49.5" width="286" height="33.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="28"/>
                                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오신걸 환영합니다." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORb-Mc-wDZ">
-                                                <rect key="frame" x="0.0" y="95" width="192.5" height="31.5"/>
-                                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="26"/>
+                                                <rect key="frame" x="0.0" y="99" width="207" height="33.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="28"/>
                                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="fpH-5M-c5K">
-                                        <rect key="frame" x="0.0" y="206.5" width="305" height="102"/>
+                                        <rect key="frame" x="0.0" y="212.5" width="305" height="102"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="아이디를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d6d-TR-Fn9" customClass="UnderLineTextField" customModule="DDD" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="305" height="30"/>
@@ -90,7 +90,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rA-ce-2hl" customClass="ButtonWithShadow" customModule="DDD" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="388.5" width="305" height="51"/>
+                                        <rect key="frame" x="0.0" y="394.5" width="305" height="51"/>
                                         <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="51" id="NhU-pn-lzT"/>
@@ -125,13 +125,18 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="f3i-Dr-IAr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-20" id="Kmu-X2-3aW"/>
+                            <constraint firstItem="f3i-Dr-IAr" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-20" id="Kmu-X2-3aW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="f3i-Dr-IAr" secondAttribute="trailing" constant="35" id="l7b-Ck-0C2"/>
                             <constraint firstItem="f3i-Dr-IAr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="pQL-c9-BkP"/>
                             <constraint firstItem="f3i-Dr-IAr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sEn-kF-ENV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="idTextField" destination="d6d-TR-Fn9" id="mX2-Nc-RhZ"/>
+                        <outlet property="loginButton" destination="2rA-ce-2hl" id="yBG-Ve-Sja"/>
+                        <outlet property="passwordTextField" destination="wus-q2-Txd" id="EYM-fN-3GE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

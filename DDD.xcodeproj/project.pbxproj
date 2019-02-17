@@ -10,6 +10,13 @@
 		11678C40823F517FAB751B6A /* Pods_DDDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909994EEA04F38A4B17BD45F /* Pods_DDDTests.framework */; };
 		4475994E2C1BDCDB05D9DD40 /* Pods_DDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8EC084080D56FDF49CCB5A /* Pods_DDD.framework */; };
 		5BA8BEB922192E4300B0CB17 /* ButtonWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEB822192E4300B0CB17 /* ButtonWithShadow.swift */; };
+		5BA8BEBB22193F2000B0CB17 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEBA22193F2000B0CB17 /* LoginService.swift */; };
+		5BA8BEBE2219400800B0CB17 /* LoginReqeust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEBD2219400800B0CB17 /* LoginReqeust.swift */; };
+		5BA8BEC02219401500B0CB17 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEBF2219401500B0CB17 /* LoginResponse.swift */; };
+		5BA8BEC22219403D00B0CB17 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEC12219403D00B0CB17 /* Encodable.swift */; };
+		5BA8BEC4221945DD00B0CB17 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEC3221945DD00B0CB17 /* ActivityIndicator.swift */; };
+		5BA8BEC62219462900B0CB17 /* Reactive+MBProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEC52219462900B0CB17 /* Reactive+MBProgressHUD.swift */; };
+		5BA8BEC8221946BE00B0CB17 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEC7221946BE00B0CB17 /* LoginViewModel.swift */; };
 		5BEAA36722191818003352E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEAA36622191818003352E9 /* AppDelegate.swift */; };
 		5BEAA36922191818003352E9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEAA36822191818003352E9 /* LoginViewController.swift */; };
 		5BEAA36C22191818003352E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BEAA36A22191818003352E9 /* Main.storyboard */; };
@@ -48,6 +55,13 @@
 		17CF6376A63147C288B6890E /* Pods-DDD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDD/Pods-DDD.release.xcconfig"; sourceTree = "<group>"; };
 		1CCA46D0968EC7C61BD4F3A7 /* Pods-DDDUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDDUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDDUITests/Pods-DDDUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5BA8BEB822192E4300B0CB17 /* ButtonWithShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithShadow.swift; sourceTree = "<group>"; };
+		5BA8BEBA22193F2000B0CB17 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		5BA8BEBD2219400800B0CB17 /* LoginReqeust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReqeust.swift; sourceTree = "<group>"; };
+		5BA8BEBF2219401500B0CB17 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		5BA8BEC12219403D00B0CB17 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		5BA8BEC3221945DD00B0CB17 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		5BA8BEC52219462900B0CB17 /* Reactive+MBProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+MBProgressHUD.swift"; sourceTree = "<group>"; };
+		5BA8BEC7221946BE00B0CB17 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5BEAA36322191818003352E9 /* DDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BEAA36622191818003352E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BEAA36822191818003352E9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +119,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BA8BEBC22193FFC00B0CB17 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5BA8BEBD2219400800B0CB17 /* LoginReqeust.swift */,
+				5BA8BEBF2219401500B0CB17 /* LoginResponse.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		5BEAA35A22191818003352E9 = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				5BEAA3AC22191E8E003352E9 /* Request.swift */,
+				5BA8BEC12219403D00B0CB17 /* Encodable.swift */,
+				5BA8BEC52219462900B0CB17 /* Reactive+MBProgressHUD.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -217,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				5BEAA3AA22191D67003352E9 /* EnumStore.swift */,
+				5BA8BEC3221945DD00B0CB17 /* ActivityIndicator.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -241,6 +267,7 @@
 		5BEAA39D22191996003352E9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				5BA8BEC7221946BE00B0CB17 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -248,6 +275,7 @@
 		5BEAA39E2219199F003352E9 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				5BA8BEBC22193FFC00B0CB17 /* Login */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -274,6 +302,7 @@
 		5BEAA3A1221919C0003352E9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				5BA8BEBA22193F2000B0CB17 /* LoginService.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -554,15 +583,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BEAA3AB22191D67003352E9 /* EnumStore.swift in Sources */,
+				5BA8BEC4221945DD00B0CB17 /* ActivityIndicator.swift in Sources */,
+				5BA8BEC22219403D00B0CB17 /* Encodable.swift in Sources */,
 				5BEAA3AD22191E8E003352E9 /* Request.swift in Sources */,
 				5BEAA36922191818003352E9 /* LoginViewController.swift in Sources */,
 				5BEAA3AF22192B92003352E9 /* UnderLineTextField.swift in Sources */,
 				5BEAA3A522191CF9003352E9 /* NetworkError.swift in Sources */,
 				5BEAA36722191818003352E9 /* AppDelegate.swift in Sources */,
+				5BA8BEC02219401500B0CB17 /* LoginResponse.swift in Sources */,
+				5BA8BEBB22193F2000B0CB17 /* LoginService.swift in Sources */,
+				5BA8BEC8221946BE00B0CB17 /* LoginViewModel.swift in Sources */,
+				5BA8BEC62219462900B0CB17 /* Reactive+MBProgressHUD.swift in Sources */,
 				5BEAA3A722191D19003352E9 /* ApiError.swift in Sources */,
 				5BA8BEB922192E4300B0CB17 /* ButtonWithShadow.swift in Sources */,
 				5BEAA3A3221919D9003352E9 /* Network.swift in Sources */,
 				5BEAA3A922191D2F003352E9 /* ValidationError.swift in Sources */,
+				5BA8BEBE2219400800B0CB17 /* LoginReqeust.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
