@@ -30,11 +30,13 @@ protocol Networking {
     
     func request2<D: Himotoki.Decodable>(method: NetworkMethod, url: String, parameters: [String: Any]?, type: D.Type) -> Observable<D>
     
+    func requestAuthLogin<D: Himotoki.Decodable>(method: NetworkMethod, url: String, parameters: [String: Any]?, type: D.Type) -> Observable<APIResult<D>>
+
 }
 
 final class Network: Networking {
     
-    private let baseUrl = ""
+    private let baseUrl = "http://ec2-54-180-115-32.ap-northeast-2.compute.amazonaws.com"
     
     private let queue = DispatchQueue(label: "DDD.Attendance.Network.Queue")
     
@@ -186,7 +188,7 @@ final class Network: Networking {
                         var apiError: ApiError
                         
                         //debugPrint("error")
-                        //debugPrint(error)
+                        debugPrint(error)
                         
                         if let data = response.data {
                             apiError = self.parsingErrorBody(data: data)
@@ -303,6 +305,77 @@ final class Network: Networking {
             }
         }
         
+    }
+    
+    func requestAuthLogin<D: Himotoki.Decodable>(method: NetworkMethod, url: String, parameters: [String: Any]?, type: D.Type) -> Observable<APIResult<D>> {
+        return Observable.create { observer in
+            let method = method.httpMethod()
+            
+            var request: DataRequest
+            
+            let user = "dddAdmin"
+            let password = "ddd123Admin"
+            
+            let credentialData = "\(user):\(password)".data(using: String.Encoding.utf8)!
+            let base64Credentials = credentialData.base64EncodedString()
+            
+            let headers = [
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Authorization": "Basic \(base64Credentials)"
+            ]
+            
+            request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters, headers: headers)
+            
+            request
+                .debugLog()
+                .authenticate(user: "dddAdmin", password: "ddd123Admin")
+                .validate()
+                .responseJSON(queue: self.queue) { response in
+                    switch response.result {
+                    case .success(let value):
+                        debugPrint("200")
+                        
+                        do {
+                            //debugPrint(value)
+                            let data = try D.decodeValue(value)
+                            observer.onNext(APIResult.Success(data))
+                            observer.onCompleted()
+                        } catch {
+                            debugPrint("decode fail \(error)")
+                            let apiError: ApiError = ApiError(date: nil,
+                                                              errorCode: "000",
+                                                              status: nil,
+                                                              message: NetworkError.IncorrectDataReturned.localizedDescription,
+                                                              path: nil)
+                            observer.onError(apiError)
+                        }
+                        
+                    case .failure(let error):
+                        var apiError: ApiError
+                        
+                        //debugPrint("error")
+                        debugPrint("api error \(error)")
+                        
+                        if let data = response.data {
+                            apiError = self.parsingErrorBody(data: data)
+                            //debugPrint("api Error : \(apiError)")
+                            observer.onError(apiError)
+                        } else {
+                            apiError = ApiError(date: nil,
+                                                errorCode: "000",
+                                                status: nil,
+                                                message: NetworkError.IncorrectDataReturned.localizedDescription,
+                                                path: nil)
+                            observer.onError(apiError)
+                            
+                        }
+                    }
+            }
+            return Disposables.create {
+                debugPrint("😇 Disposables \(url)")
+                request.cancel()
+            }
+        }
     }
     
     
