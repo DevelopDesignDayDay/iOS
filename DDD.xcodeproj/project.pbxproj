@@ -164,7 +164,7 @@
 				5BEAA3972219192D003352E9 /* ViewModel */,
 				5BEAA39622191926003352E9 /* View */,
 				5BEAA39522191910003352E9 /* Stroyboard */,
-				5BEAA39422191903003352E9 /* Support FIles */,
+				5BEAA39422191903003352E9 /* Support Files */,
 			);
 			path = DDD;
 			sourceTree = "<group>";
@@ -187,7 +187,7 @@
 			path = DDDUITests;
 			sourceTree = "<group>";
 		};
-		5BEAA39422191903003352E9 /* Support FIles */ = {
+		5BEAA39422191903003352E9 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
 				5BEAA3722219181A003352E9 /* Info.plist */,
@@ -195,7 +195,7 @@
 				5BEAA36622191818003352E9 /* AppDelegate.swift */,
 				5B075E2E221FB8D700D662D4 /* Localizable.strings */,
 			);
-			path = "Support FIles";
+			path = "Support Files";
 			sourceTree = "<group>";
 		};
 		5BEAA39522191910003352E9 /* Stroyboard */ = {
