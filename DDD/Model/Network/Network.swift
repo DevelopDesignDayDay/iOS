@@ -36,7 +36,7 @@ protocol Networking {
 
 final class Network: Networking {
     
-    private let baseUrl = "http://ec2-54-180-115-32.ap-northeast-2.compute.amazonaws.com"
+    private let baseUrl = "base_url".localized
     
     private let queue = DispatchQueue(label: "DDD.Attendance.Network.Queue")
     
@@ -313,8 +313,8 @@ final class Network: Networking {
             
             var request: DataRequest
             
-            let user = "dddAdmin"
-            let password = "ddd123Admin"
+            let user = "auth_id".localized
+            let password = "auth_pw".localized
             
             let credentialData = "\(user):\(password)".data(using: String.Encoding.utf8)!
             let base64Credentials = credentialData.base64EncodedString()
@@ -328,7 +328,6 @@ final class Network: Networking {
             
             request
                 .debugLog()
-                .authenticate(user: "dddAdmin", password: "ddd123Admin")
                 .validate()
                 .responseJSON(queue: self.queue) { response in
                     switch response.result {
