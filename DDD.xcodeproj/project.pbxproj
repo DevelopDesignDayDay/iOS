@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		11678C40823F517FAB751B6A /* Pods_DDDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909994EEA04F38A4B17BD45F /* Pods_DDDTests.framework */; };
 		4475994E2C1BDCDB05D9DD40 /* Pods_DDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8EC084080D56FDF49CCB5A /* Pods_DDD.framework */; };
+		5B075E2F221FB8D700D662D4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B075E2E221FB8D700D662D4 /* Localizable.strings */; };
+		5B075E31221FB8F700D662D4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B075E30221FB8F700D662D4 /* String.swift */; };
 		5BA8BEB922192E4300B0CB17 /* ButtonWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEB822192E4300B0CB17 /* ButtonWithShadow.swift */; };
 		5BA8BEBB22193F2000B0CB17 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEBA22193F2000B0CB17 /* LoginService.swift */; };
 		5BA8BEBE2219400800B0CB17 /* LoginReqeust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEBD2219400800B0CB17 /* LoginReqeust.swift */; };
@@ -54,6 +56,8 @@
 /* Begin PBXFileReference section */
 		17CF6376A63147C288B6890E /* Pods-DDD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDD/Pods-DDD.release.xcconfig"; sourceTree = "<group>"; };
 		1CCA46D0968EC7C61BD4F3A7 /* Pods-DDDUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDDUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDDUITests/Pods-DDDUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5B075E2E221FB8D700D662D4 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		5B075E30221FB8F700D662D4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5BA8BEB822192E4300B0CB17 /* ButtonWithShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithShadow.swift; sourceTree = "<group>"; };
 		5BA8BEBA22193F2000B0CB17 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		5BA8BEBD2219400800B0CB17 /* LoginReqeust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReqeust.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				5BEAA3722219181A003352E9 /* Info.plist */,
 				5BEAA36D2219181A003352E9 /* Assets.xcassets */,
 				5BEAA36622191818003352E9 /* AppDelegate.swift */,
+				5B075E2E221FB8D700D662D4 /* Localizable.strings */,
 			);
 			path = "Support FIles";
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 				5BEAA3AC22191E8E003352E9 /* Request.swift */,
 				5BA8BEC12219403D00B0CB17 /* Encodable.swift */,
 				5BA8BEC52219462900B0CB17 /* Reactive+MBProgressHUD.swift */,
+				5B075E30221FB8F700D662D4 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -439,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BEAA3712219181A003352E9 /* LaunchScreen.storyboard in Resources */,
+				5B075E2F221FB8D700D662D4 /* Localizable.strings in Resources */,
 				5BEAA36E2219181A003352E9 /* Assets.xcassets in Resources */,
 				5BEAA36C22191818003352E9 /* Main.storyboard in Resources */,
 			);
@@ -594,6 +601,7 @@
 				5BA8BEBB22193F2000B0CB17 /* LoginService.swift in Sources */,
 				5BA8BEC8221946BE00B0CB17 /* LoginViewModel.swift in Sources */,
 				5BA8BEC62219462900B0CB17 /* Reactive+MBProgressHUD.swift in Sources */,
+				5B075E31221FB8F700D662D4 /* String.swift in Sources */,
 				5BEAA3A722191D19003352E9 /* ApiError.swift in Sources */,
 				5BA8BEB922192E4300B0CB17 /* ButtonWithShadow.swift in Sources */,
 				5BEAA3A3221919D9003352E9 /* Network.swift in Sources */,
