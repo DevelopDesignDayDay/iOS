@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		11678C40823F517FAB751B6A /* Pods_DDDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909994EEA04F38A4B17BD45F /* Pods_DDDTests.framework */; };
 		4475994E2C1BDCDB05D9DD40 /* Pods_DDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8EC084080D56FDF49CCB5A /* Pods_DDD.framework */; };
-		5B075E2F221FB8D700D662D4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B075E2E221FB8D700D662D4 /* Localizable.strings */; };
 		5B075E31221FB8F700D662D4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B075E30221FB8F700D662D4 /* String.swift */; };
 		5BA8BEB922192E4300B0CB17 /* ButtonWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEB822192E4300B0CB17 /* ButtonWithShadow.swift */; };
 		5BA8BEBB22193F2000B0CB17 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEBA22193F2000B0CB17 /* LoginService.swift */; };
@@ -34,6 +33,17 @@
 		5BEAA3AD22191E8E003352E9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEAA3AC22191E8E003352E9 /* Request.swift */; };
 		5BEAA3AF22192B92003352E9 /* UnderLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEAA3AE22192B92003352E9 /* UnderLineTextField.swift */; };
 		A4F6E952BE65E371DDB0FEAF /* Pods_DDDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E809C28B4F9C9C22E8CA337F /* Pods_DDDUITests.framework */; };
+		BC9AFFC42227D56B00C58A0C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC9AFFC32227D56B00C58A0C /* Localizable.strings */; };
+		BC9AFFC72227D8B400C58A0C /* AttendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9AFFC62227D8B400C58A0C /* AttendViewController.swift */; };
+		BC9AFFCA2227D8CD00C58A0C /* AttendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9AFFC92227D8CD00C58A0C /* AttendViewModel.swift */; };
+		BC9AFFCD2227E37600C58A0C /* AttendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9AFFCC2227E37600C58A0C /* AttendService.swift */; };
+		BC9AFFD02227E46400C58A0C /* AttendResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9AFFCF2227E46400C58A0C /* AttendResponse.swift */; };
+		BC9AFFD222291C6000C58A0C /* AttendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9AFFD122291C6000C58A0C /* AttendRequest.swift */; };
+		BC9AFFD422291CED00C58A0C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9AFFD322291CED00C58A0C /* Colors.swift */; };
+		BC9AFFD6222978F900C58A0C /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9AFFD5222978F900C58A0C /* PopUpView.swift */; };
+		BC9AFFD82229790A00C58A0C /* PopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9AFFD72229790A00C58A0C /* PopUpView.xib */; };
+		BC9AFFDA222A872F00C58A0C /* Enum+UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9AFFD9222A872F00C58A0C /* Enum+UserType.swift */; };
+		BCFCC30C222BBBA500BA03AF /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFCC30B222BBBA500BA03AF /* Extension+UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +66,6 @@
 /* Begin PBXFileReference section */
 		17CF6376A63147C288B6890E /* Pods-DDD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDD/Pods-DDD.release.xcconfig"; sourceTree = "<group>"; };
 		1CCA46D0968EC7C61BD4F3A7 /* Pods-DDDUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDDUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDDUITests/Pods-DDDUITests.release.xcconfig"; sourceTree = "<group>"; };
-		5B075E2E221FB8D700D662D4 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		5B075E30221FB8F700D662D4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5BA8BEB822192E4300B0CB17 /* ButtonWithShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithShadow.swift; sourceTree = "<group>"; };
 		5BA8BEBA22193F2000B0CB17 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -91,6 +100,17 @@
 		8B9B2C07C26A38868651A6D4 /* Pods-DDDUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDDUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDDUITests/Pods-DDDUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		909994EEA04F38A4B17BD45F /* Pods_DDDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB214140E48D80919A363775 /* Pods-DDDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDDTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDDTests/Pods-DDDTests.release.xcconfig"; sourceTree = "<group>"; };
+		BC9AFFC32227D56B00C58A0C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		BC9AFFC62227D8B400C58A0C /* AttendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendViewController.swift; sourceTree = "<group>"; };
+		BC9AFFC92227D8CD00C58A0C /* AttendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendViewModel.swift; sourceTree = "<group>"; };
+		BC9AFFCC2227E37600C58A0C /* AttendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendService.swift; sourceTree = "<group>"; };
+		BC9AFFCF2227E46400C58A0C /* AttendResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendResponse.swift; sourceTree = "<group>"; };
+		BC9AFFD122291C6000C58A0C /* AttendRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendRequest.swift; sourceTree = "<group>"; };
+		BC9AFFD322291CED00C58A0C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		BC9AFFD5222978F900C58A0C /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		BC9AFFD72229790A00C58A0C /* PopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpView.xib; sourceTree = "<group>"; };
+		BC9AFFD9222A872F00C58A0C /* Enum+UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+UserType.swift"; sourceTree = "<group>"; };
+		BCFCC30B222BBBA500BA03AF /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		E809C28B4F9C9C22E8CA337F /* Pods_DDDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC8EC084080D56FDF49CCB5A /* Pods_DDD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -193,7 +213,7 @@
 				5BEAA3722219181A003352E9 /* Info.plist */,
 				5BEAA36D2219181A003352E9 /* Assets.xcassets */,
 				5BEAA36622191818003352E9 /* AppDelegate.swift */,
-				5B075E2E221FB8D700D662D4 /* Localizable.strings */,
+				BC9AFFC32227D56B00C58A0C /* Localizable.strings */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -211,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				5BEAA39C2219198F003352E9 /* Login */,
+				BC9AFFC52227D89F00C58A0C /* Attend */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -219,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				5BEAA39D22191996003352E9 /* Login */,
+				BC9AFFC82227D8B900C58A0C /* Attend */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -240,6 +262,8 @@
 				5BA8BEC12219403D00B0CB17 /* Encodable.swift */,
 				5BA8BEC52219462900B0CB17 /* Reactive+MBProgressHUD.swift */,
 				5B075E30221FB8F700D662D4 /* String.swift */,
+				BC9AFFD322291CED00C58A0C /* Colors.swift */,
+				BCFCC30B222BBBA500BA03AF /* Extension+UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -249,6 +273,7 @@
 			children = (
 				5BEAA3AA22191D67003352E9 /* EnumStore.swift */,
 				5BA8BEC3221945DD00B0CB17 /* ActivityIndicator.swift */,
+				BC9AFFD9222A872F00C58A0C /* Enum+UserType.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -282,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				5BA8BEBC22193FFC00B0CB17 /* Login */,
+				BC9AFFCE2227E41600C58A0C /* Attend */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -290,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				5BEAA3A1221919C0003352E9 /* Login */,
+				BC9AFFCB2227E36A00C58A0C /* Attend */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -334,6 +361,41 @@
 				1CCA46D0968EC7C61BD4F3A7 /* Pods-DDDUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BC9AFFC52227D89F00C58A0C /* Attend */ = {
+			isa = PBXGroup;
+			children = (
+				BC9AFFC62227D8B400C58A0C /* AttendViewController.swift */,
+				BC9AFFD5222978F900C58A0C /* PopUpView.swift */,
+				BC9AFFD72229790A00C58A0C /* PopUpView.xib */,
+			);
+			path = Attend;
+			sourceTree = "<group>";
+		};
+		BC9AFFC82227D8B900C58A0C /* Attend */ = {
+			isa = PBXGroup;
+			children = (
+				BC9AFFC92227D8CD00C58A0C /* AttendViewModel.swift */,
+			);
+			path = Attend;
+			sourceTree = "<group>";
+		};
+		BC9AFFCB2227E36A00C58A0C /* Attend */ = {
+			isa = PBXGroup;
+			children = (
+				BC9AFFCC2227E37600C58A0C /* AttendService.swift */,
+			);
+			path = Attend;
+			sourceTree = "<group>";
+		};
+		BC9AFFCE2227E41600C58A0C /* Attend */ = {
+			isa = PBXGroup;
+			children = (
+				BC9AFFD122291C6000C58A0C /* AttendRequest.swift */,
+				BC9AFFCF2227E46400C58A0C /* AttendResponse.swift */,
+			);
+			path = Attend;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,7 +507,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BEAA3712219181A003352E9 /* LaunchScreen.storyboard in Resources */,
-				5B075E2F221FB8D700D662D4 /* Localizable.strings in Resources */,
+				BC9AFFD82229790A00C58A0C /* PopUpView.xib in Resources */,
+				BC9AFFC42227D56B00C58A0C /* Localizable.strings in Resources */,
 				5BEAA36E2219181A003352E9 /* Assets.xcassets in Resources */,
 				5BEAA36C22191818003352E9 /* Main.storyboard in Resources */,
 			);
@@ -547,6 +610,7 @@
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Himotoki/Himotoki.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
@@ -566,6 +630,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Himotoki.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
@@ -590,23 +655,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BEAA3AB22191D67003352E9 /* EnumStore.swift in Sources */,
+				BC9AFFD422291CED00C58A0C /* Colors.swift in Sources */,
 				5BA8BEC4221945DD00B0CB17 /* ActivityIndicator.swift in Sources */,
+				BC9AFFC72227D8B400C58A0C /* AttendViewController.swift in Sources */,
+				BC9AFFCA2227D8CD00C58A0C /* AttendViewModel.swift in Sources */,
 				5BA8BEC22219403D00B0CB17 /* Encodable.swift in Sources */,
 				5BEAA3AD22191E8E003352E9 /* Request.swift in Sources */,
 				5BEAA36922191818003352E9 /* LoginViewController.swift in Sources */,
 				5BEAA3AF22192B92003352E9 /* UnderLineTextField.swift in Sources */,
+				BC9AFFD02227E46400C58A0C /* AttendResponse.swift in Sources */,
 				5BEAA3A522191CF9003352E9 /* NetworkError.swift in Sources */,
+				BC9AFFDA222A872F00C58A0C /* Enum+UserType.swift in Sources */,
 				5BEAA36722191818003352E9 /* AppDelegate.swift in Sources */,
 				5BA8BEC02219401500B0CB17 /* LoginResponse.swift in Sources */,
 				5BA8BEBB22193F2000B0CB17 /* LoginService.swift in Sources */,
 				5BA8BEC8221946BE00B0CB17 /* LoginViewModel.swift in Sources */,
+				BC9AFFD6222978F900C58A0C /* PopUpView.swift in Sources */,
 				5BA8BEC62219462900B0CB17 /* Reactive+MBProgressHUD.swift in Sources */,
 				5B075E31221FB8F700D662D4 /* String.swift in Sources */,
 				5BEAA3A722191D19003352E9 /* ApiError.swift in Sources */,
 				5BA8BEB922192E4300B0CB17 /* ButtonWithShadow.swift in Sources */,
 				5BEAA3A3221919D9003352E9 /* Network.swift in Sources */,
 				5BEAA3A922191D2F003352E9 /* ValidationError.swift in Sources */,
+				BC9AFFCD2227E37600C58A0C /* AttendService.swift in Sources */,
+				BC9AFFD222291C6000C58A0C /* AttendRequest.swift in Sources */,
 				5BA8BEBE2219400800B0CB17 /* LoginReqeust.swift in Sources */,
+				BCFCC30C222BBBA500BA03AF /* Extension+UIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,7 +786,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -767,7 +841,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -783,7 +857,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PQFD9V79PC;
+				DEVELOPMENT_TEAM = 86PPC52X64;
 				INFOPLIST_FILE = "$(SRCROOT)/DDD/Support FIles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -803,7 +877,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PQFD9V79PC;
+				DEVELOPMENT_TEAM = 86PPC52X64;
 				INFOPLIST_FILE = "$(SRCROOT)/DDD/Support FIles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -824,7 +898,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PQFD9V79PC;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DDDTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -846,7 +920,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PQFD9V79PC;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DDDTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -867,7 +941,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PQFD9V79PC;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DDDUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -888,7 +962,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PQFD9V79PC;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DDDUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
