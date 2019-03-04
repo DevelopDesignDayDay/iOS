@@ -23,6 +23,8 @@ class LoginViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
+    private let attendViewControllerIdentifier = "AttendViewController"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginViewModel = LoginViewModel(loginService: LoginService())
@@ -52,16 +54,35 @@ class LoginViewController: UIViewController {
             .disposed(by: disposeBag)
         
         loginViewModel.loginResult
-            .subscribe(onNext: { (response) in
+            .subscribe(onNext: { [weak self] (response) in
+                guard let self = self else { return }
                 switch response {
                 case .Success(let data):
                     debugPrint("data \(data)")
+                    self.setUserDefaults(to: data)
+                    self.presentAttendViewController(to: data.user)
+                    print(data.user)
                 case .Error(let error):
                     debugPrint("error \(error)")
                 }
             }).disposed(by: disposeBag)
-        
     }
-
+    
+    private func presentAttendViewController(to data: User) {
+        guard
+            let attendVC = self.storyboard?.instantiateViewController(
+                withIdentifier: attendViewControllerIdentifier
+            ) as? AttendViewController else { fatalError("Invalid Identifier") }
+        attendVC.userType = data.type
+        attendVC.userId = data.id
+        self.present(attendVC, animated: true, completion: nil)
+    }
+    
+    private func setUserDefaults(to data: LoginResponse) {
+        UserDefaults.standard.setValue(data.accessToken, forKey: "accessToken")
+        UserDefaults.standard.setValue(data.refreshToken, forKey: "refreshToken")
+        UserDefaults.standard.setValue(data.user.id, forKey: "userId")
+        UserDefaults.standard.setValue(data.user.type, forKey: "userType")
+        UserDefaults.standard.synchronize()
+    }
 }
-
