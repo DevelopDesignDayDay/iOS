@@ -10,18 +10,16 @@ import Himotoki
 
 struct AttendResponse {
     let status: String
-    let number: Int
-    let expire: String
-    let message: String
+    let message: String?
+    let number: Int?
 }
 
 extension AttendResponse: Himotoki.Decodable {
     static func decode(_ e: Extractor) throws -> AttendResponse {
         return try AttendResponse(
             status: e <| "status",
-            number: e <| "number",
-            expire: e <| "expire",
-            message: e <| "message"
+            message: e <|? "message",
+            number: e <|? "number"
         )
     }
 }
