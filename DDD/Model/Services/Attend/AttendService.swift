@@ -23,24 +23,24 @@ enum Attend {
 }
 
 protocol AttendServicable {
-    func start() -> Observable<APIResult<AttendResponse>>
-    func end() -> Observable<APIResult<AttendResponse>>
-    func check(param: [String: Any]?) -> Observable<APIResult<AttendResponse>>
+    func start(token: String) -> Observable<APIResult<AttendResponse>>
+    func end(token: String) -> Observable<APIResult<AttendResponse>>
+    func check(token: String, param: [String: Any]?) -> Observable<APIResult<AttendResponse>>
 }
 
 class AttendService: AttendServicable {
-    func start() -> Observable<APIResult<AttendResponse>> {
+    func start(token: String) -> Observable<APIResult<AttendResponse>> {
         let url = Attend.start.url
-        return Network.shared.request(method: .post, url: url, parameters: nil, type: AttendResponse.self)
+        return Network.shared.requestWith(method: .post, url: url, parameters: nil, authToken: token, type: AttendResponse.self)
     }
     
-    func end() -> Observable<APIResult<AttendResponse>> {
+    func end(token: String) -> Observable<APIResult<AttendResponse>> {
         let url = Attend.end.url
-        return Network.shared.request(method: .post, url: url, parameters: nil, type: AttendResponse.self)
+        return Network.shared.requestWith(method: .post, url: url, parameters: nil, authToken: token, type: AttendResponse.self)
     }
     
-    func check(param: [String : Any]?) -> Observable<APIResult<AttendResponse>> {
+    func check(token: String, param: [String : Any]?) -> Observable<APIResult<AttendResponse>> {
         let url = Attend.check.url
-        return Network.shared.request(method: .post, url: url, parameters: param, type: AttendResponse.self)
+        return Network.shared.requestWith(method: .post, url: url, parameters: param, authToken: token, type: AttendResponse.self)
     }
 }
