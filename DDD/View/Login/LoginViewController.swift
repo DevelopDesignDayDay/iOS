@@ -23,14 +23,27 @@ class LoginViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
+    private let splash = SplashAnimationView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initView()
         loginViewModel = LoginViewModel(loginService: LoginService())
         setupRx()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //splash.splash.animationSpeed
+        splash.splash.play { [unowned self] (isComplete) in
+            self.splash.isHidden = true
+            debugPrint("isPlay \(isComplete)")
+        }
+    }
+    
     func initView() {
-        
+        view.addSubview(splash)
+        splash.pinEdgesToSuperView()
     }
     
     func setupRx() {
@@ -61,7 +74,28 @@ class LoginViewController: UIViewController {
                 }
             }).disposed(by: disposeBag)
         
+        loginViewModel.emptyError
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [unowned self] (error) in
+                CommonAlert.ShowValidationErrorAlert(error: error, in: self)
+            }).disposed(by: disposeBag)
+        
+        loginViewModel.formValidation
+            .subscribe(onNext: { [unowned self] (account, pw) in
+                debugPrint("account \(account) pw \(pw)")
+                
+                if account.count > 0 && pw.count > 0 {
+                    self.loginButton.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+                    self.loginButton.isEnabled = true
+                } else {
+                    self.loginButton.backgroundColor = UIColor(red: 153/255, green: 153/255, blue: 153/255, alpha: 1.0)
+                    self.loginButton.isEnabled = false
+                }
+                
+            }).disposed(by: disposeBag)
+        
+        
     }
-
+    
 }
 

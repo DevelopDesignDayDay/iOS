@@ -23,6 +23,10 @@ protocol LoginViewModeling {
     // MARK: - Output
     var loginResult: Observable<APIResult<LoginResponse>>! { get }
     
+    var emptyError: PublishSubject<ValidationError> { get }
+    
+    var formValidation: Observable<(String, String)>! { get }
+    
 }
 
 class LoginViewModel: LoginViewModeling {
@@ -43,22 +47,38 @@ class LoginViewModel: LoginViewModeling {
     // MARK: - Output
     var loginResult: Observable<APIResult<LoginResponse>>!
     
+    var emptyError: PublishSubject<ValidationError> = PublishSubject<ValidationError>()
+    
+    var formValidation: Observable<(String, String)>!
+    
     init(loginService: LoginServicing) {
         
-        let loginRequest =  Observable.combineLatest(account, password)
+        let loginRequest = Observable.combineLatest(account, password).share(replay: 1)
+        
+        formValidation = loginRequest.asObservable().observeOn(MainScheduler.instance)
         
         loginResult = tapLogin.withLatestFrom(loginRequest)
-            .filter { (account, password) -> Bool in
+            .filter { [unowned self] (account, password) -> Bool in
                 var isValidation = false
                 
                 if account.count <= 0 {
                     isValidation = false
+                    self.emptyError.onNext(
+                        ValidationError(
+                            errorCode: Validation.EMPTY_ID,
+                            message: "empty_id_info".localized)
+                    )
                 } else {
                     isValidation = true
                 }
                 
                 if password.count <= 0 {
                     isValidation = false
+                    self.emptyError.onNext(
+                        ValidationError(
+                            errorCode: Validation.EMPTY_PW,
+                            message: "empty_pw_info".localized)
+                    )
                 } else {
                     isValidation = true
                 }

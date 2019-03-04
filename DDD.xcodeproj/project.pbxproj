@@ -11,6 +11,10 @@
 		4475994E2C1BDCDB05D9DD40 /* Pods_DDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8EC084080D56FDF49CCB5A /* Pods_DDD.framework */; };
 		5B075E2F221FB8D700D662D4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B075E2E221FB8D700D662D4 /* Localizable.strings */; };
 		5B075E31221FB8F700D662D4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B075E30221FB8F700D662D4 /* String.swift */; };
+		5B36048A222CE44200C5F84E /* ddd_splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B360489222CE44200C5F84E /* ddd_splash.json */; };
+		5B36048C222CE74100C5F84E /* SplashAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B36048B222CE74100C5F84E /* SplashAnimationView.swift */; };
+		5B36048E222D221600C5F84E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B36048D222D221600C5F84E /* UIView.swift */; };
+		5B360492222D29BA00C5F84E /* CommonAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B360491222D29BA00C5F84E /* CommonAlert.swift */; };
 		5BA8BEB922192E4300B0CB17 /* ButtonWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEB822192E4300B0CB17 /* ButtonWithShadow.swift */; };
 		5BA8BEBB22193F2000B0CB17 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEBA22193F2000B0CB17 /* LoginService.swift */; };
 		5BA8BEBE2219400800B0CB17 /* LoginReqeust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEBD2219400800B0CB17 /* LoginReqeust.swift */; };
@@ -58,6 +62,10 @@
 		1CCA46D0968EC7C61BD4F3A7 /* Pods-DDDUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDDUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDDUITests/Pods-DDDUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5B075E2E221FB8D700D662D4 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		5B075E30221FB8F700D662D4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		5B360489222CE44200C5F84E /* ddd_splash.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ddd_splash.json; sourceTree = "<group>"; };
+		5B36048B222CE74100C5F84E /* SplashAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimationView.swift; sourceTree = "<group>"; };
+		5B36048D222D221600C5F84E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		5B360491222D29BA00C5F84E /* CommonAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonAlert.swift; sourceTree = "<group>"; };
 		5BA8BEB822192E4300B0CB17 /* ButtonWithShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithShadow.swift; sourceTree = "<group>"; };
 		5BA8BEBA22193F2000B0CB17 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		5BA8BEBD2219400800B0CB17 /* LoginReqeust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReqeust.swift; sourceTree = "<group>"; };
@@ -165,6 +173,7 @@
 				5BEAA39622191926003352E9 /* View */,
 				5BEAA39522191910003352E9 /* Stroyboard */,
 				5BEAA39422191903003352E9 /* Support Files */,
+				5B360489222CE44200C5F84E /* ddd_splash.json */,
 			);
 			path = DDD;
 			sourceTree = "<group>";
@@ -240,6 +249,7 @@
 				5BA8BEC12219403D00B0CB17 /* Encodable.swift */,
 				5BA8BEC52219462900B0CB17 /* Reactive+MBProgressHUD.swift */,
 				5B075E30221FB8F700D662D4 /* String.swift */,
+				5B36048D222D221600C5F84E /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -249,6 +259,7 @@
 			children = (
 				5BEAA3AA22191D67003352E9 /* EnumStore.swift */,
 				5BA8BEC3221945DD00B0CB17 /* ActivityIndicator.swift */,
+				5B360491222D29BA00C5F84E /* CommonAlert.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -258,6 +269,7 @@
 			children = (
 				5BEAA3AE22192B92003352E9 /* UnderLineTextField.swift */,
 				5BA8BEB822192E4300B0CB17 /* ButtonWithShadow.swift */,
+				5B36048B222CE74100C5F84E /* SplashAnimationView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -448,6 +460,7 @@
 				5B075E2F221FB8D700D662D4 /* Localizable.strings in Resources */,
 				5BEAA36E2219181A003352E9 /* Assets.xcassets in Resources */,
 				5BEAA36C22191818003352E9 /* Main.storyboard in Resources */,
+				5B36048A222CE44200C5F84E /* ddd_splash.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +570,7 @@
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -576,6 +590,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -589,6 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B36048E222D221600C5F84E /* UIView.swift in Sources */,
 				5BEAA3AB22191D67003352E9 /* EnumStore.swift in Sources */,
 				5BA8BEC4221945DD00B0CB17 /* ActivityIndicator.swift in Sources */,
 				5BA8BEC22219403D00B0CB17 /* Encodable.swift in Sources */,
@@ -597,6 +613,7 @@
 				5BEAA3AF22192B92003352E9 /* UnderLineTextField.swift in Sources */,
 				5BEAA3A522191CF9003352E9 /* NetworkError.swift in Sources */,
 				5BEAA36722191818003352E9 /* AppDelegate.swift in Sources */,
+				5B36048C222CE74100C5F84E /* SplashAnimationView.swift in Sources */,
 				5BA8BEC02219401500B0CB17 /* LoginResponse.swift in Sources */,
 				5BA8BEBB22193F2000B0CB17 /* LoginService.swift in Sources */,
 				5BA8BEC8221946BE00B0CB17 /* LoginViewModel.swift in Sources */,
@@ -606,6 +623,7 @@
 				5BA8BEB922192E4300B0CB17 /* ButtonWithShadow.swift in Sources */,
 				5BEAA3A3221919D9003352E9 /* Network.swift in Sources */,
 				5BEAA3A922191D2F003352E9 /* ValidationError.swift in Sources */,
+				5B360492222D29BA00C5F84E /* CommonAlert.swift in Sources */,
 				5BA8BEBE2219400800B0CB17 /* LoginReqeust.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
