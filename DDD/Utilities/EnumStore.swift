@@ -10,4 +10,6 @@ import Foundation
 
 public enum Validation {
     case EMPTY_TEXT_FIELD
+    case EMPTY_ID
+    case EMPTY_PW
 }

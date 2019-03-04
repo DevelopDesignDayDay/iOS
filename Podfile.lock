@@ -3,6 +3,7 @@ PODS:
   - Differentiator (3.1.0)
   - Himotoki (3.2.0)
   - IQKeyboardManagerSwift (6.2.0)
+  - lottie-ios (2.5.2)
   - RxAtomic (4.4.0)
   - RxCocoa (4.4.0):
     - RxSwift (~> 4.0)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - Alamofire
   - Himotoki
   - IQKeyboardManagerSwift
+  - lottie-ios
   - RxCocoa (~> 4.0)
   - RxDataSources
   - RxOptional
@@ -50,6 +52,7 @@ SPEC REPOS:
     - Differentiator
     - Himotoki
     - IQKeyboardManagerSwift
+    - lottie-ios
     - RxAtomic
     - RxCocoa
     - RxDataSources
@@ -74,6 +77,7 @@ SPEC CHECKSUMS:
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Himotoki: 2618fc6b939ad6d9b71c52c90fe210f54ea28167
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
@@ -85,6 +89,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   TPKeyboardAvoiding: cb69d5ddbe90ce0170e4bc2db1e5e41d4a3ad9a4
 
-PODFILE CHECKSUM: 4d77376df2289aec0da9385360011e3d091769c4
+PODFILE CHECKSUM: 6de10ce6f60c8bef46615b257484425da54077fb
 
 COCOAPODS: 1.5.3
