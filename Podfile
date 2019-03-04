@@ -40,6 +40,7 @@ target 'DDD' do
   pod 'TPKeyboardAvoiding', :git => 'https://github.com/michaeltyson/TPKeyboardAvoiding.git'
   pod 'SVProgressHUD'
   pod 'MaterialTextField'
+  pod 'lottie-ios'
 
   target 'DDDTests' do
     inherit! :search_paths
