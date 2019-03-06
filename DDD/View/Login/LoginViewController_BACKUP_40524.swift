@@ -23,9 +23,11 @@ class LoginViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
+<<<<<<< HEAD
     private let attendViewControllerIdentifier = "AttendViewController"
-
+=======
     private let splash = SplashAnimationView()
+>>>>>>> 0ccfb27d291f3668b310ee528e1ba01c43b76cc1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +81,28 @@ class LoginViewController: UIViewController {
                     debugPrint("error \(error)")
                 }
             }).disposed(by: disposeBag)
+<<<<<<< HEAD
+    }
+    
+    private func presentAttendViewController(to data: User) {
+        guard
+            let attendVC = self.storyboard?.instantiateViewController(
+                withIdentifier: attendViewControllerIdentifier
+            ) as? AttendViewController else { fatalError("Invalid Identifier") }
+        attendVC.userType = data.type
+        attendVC.userId = data.id
+        self.present(attendVC, animated: true, completion: nil)
+    }
+    
+    private func setUserDefaults(to data: LoginResponse) {
+        UserDefaults.standard.setValue(data.accessToken, forKey: "accessToken")
+        UserDefaults.standard.setValue(data.refreshToken, forKey: "refreshToken")
+        UserDefaults.standard.setValue(data.user.id, forKey: "userId")
+        UserDefaults.standard.setValue(data.user.type, forKey: "userType")
+        UserDefaults.standard.synchronize()
+    }
+=======
+        
         loginViewModel.emptyError
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [unowned self] (error) in
@@ -102,21 +126,5 @@ class LoginViewController: UIViewController {
         
     }
     
-    private func presentAttendViewController(to data: User) {
-        guard
-            let attendVC = self.storyboard?.instantiateViewController(
-                withIdentifier: attendViewControllerIdentifier
-                ) as? AttendViewController else { fatalError("Invalid Identifier") }
-        attendVC.userType = data.type
-        attendVC.userId = data.id
-        self.present(attendVC, animated: false, completion: nil)
-    }
-    
-    private func setUserDefaults(to data: LoginResponse) {
-        UserDefaults.standard.setValue(data.accessToken, forKey: "accessToken")
-        UserDefaults.standard.setValue(data.refreshToken, forKey: "refreshToken")
-        UserDefaults.standard.setValue(data.user.id, forKey: "userId")
-        UserDefaults.standard.setValue(data.user.type, forKey: "userType")
-        UserDefaults.standard.synchronize()
-    }
+>>>>>>> 0ccfb27d291f3668b310ee528e1ba01c43b76cc1
 }

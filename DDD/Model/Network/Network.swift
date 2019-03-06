@@ -31,6 +31,8 @@ protocol Networking {
     func request2<D: Himotoki.Decodable>(method: NetworkMethod, url: String, parameters: [String: Any]?, type: D.Type) -> Observable<D>
     
     func requestAuthLogin<D: Himotoki.Decodable>(method: NetworkMethod, url: String, parameters: [String: Any]?, type: D.Type) -> Observable<APIResult<D>>
+    
+    func requestWith<D: Himotoki.Decodable>(method: NetworkMethod, url: String, parameters: [String: Any]?, authToken: String, type: D.Type) -> Observable<APIResult<D>> 
 
 }
 
@@ -358,6 +360,67 @@ final class Network: Networking {
                         if let data = response.data {
                             apiError = self.parsingErrorBody(data: data)
                             //debugPrint("api Error : \(apiError)")
+                            observer.onError(apiError)
+                        } else {
+                            apiError = ApiError(date: nil,
+                                                errorCode: "000",
+                                                status: nil,
+                                                message: NetworkError.IncorrectDataReturned.localizedDescription,
+                                                path: nil)
+                            observer.onError(apiError)
+                            
+                        }
+                    }
+            }
+            return Disposables.create {
+                debugPrint("😇 Disposables \(url)")
+                request.cancel()
+            }
+        }
+    }
+    
+    func requestWith<D: Himotoki.Decodable>(method: NetworkMethod, url: String, parameters: [String: Any]?, authToken: String, type: D.Type) -> Observable<APIResult<D>> {
+        return Observable.create { observer in
+            let method = method.httpMethod()
+            
+            var request: DataRequest
+            
+            let headers = [
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Authorization": authToken
+            ]
+            
+            debugPrint(headers)
+            
+            request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters, headers: headers)
+            
+            request
+                .debugLog()
+                .validate()
+                .responseJSON(queue: self.queue) { response in
+                    switch response.result {
+                    case .success(let value):
+                        do {
+                            let data = try D.decodeValue(value)
+                            observer.onNext(APIResult.Success(data))
+                            observer.onCompleted()
+                        } catch {
+                            debugPrint("decode fail \(error)")
+                            let apiError: ApiError = ApiError(date: nil,
+                                                              errorCode: "000",
+                                                              status: nil,
+                                                              message: NetworkError.IncorrectDataReturned.localizedDescription,
+                                                              path: nil)
+                            observer.onError(apiError)
+                        }
+                        
+                    case .failure(let error):
+                        var apiError: ApiError
+
+                        debugPrint(error)
+                        
+                        if let data = response.data {
+                            apiError = self.parsingErrorBody(data: data)
                             observer.onError(apiError)
                         } else {
                             apiError = ApiError(date: nil,
