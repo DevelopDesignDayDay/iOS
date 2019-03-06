@@ -20,6 +20,7 @@ protocol AttendViewModeling {
     
     // MARK: - Output
     var attendResult: Observable<APIResult<AttendResponse>>! { get }
+    var formValidation: Observable<String>? { get }
 }
 
 class AttendViewModel: AttendViewModeling {
@@ -39,64 +40,50 @@ class AttendViewModel: AttendViewModeling {
     
     // MARK: - Output
     var attendResult: Observable<APIResult<AttendResponse>>!
+    var formValidation: Observable<String>?
     
     // MARK: - Initializer
     init(attendService: AttendServicable) {
         guard let accessToken = accessToken else { return }
-        switch User(type: userType) {
-        case .general:
+        switch UserType(userType: userType) {
+        case .general: // General User Type
             let attendRequest = Observable.combineLatest(userId, number)
+            formValidation = number.observeOn(MainScheduler.instance)
             attendResult = tapAttend.withLatestFrom(attendRequest)
-                .filter { (userId, number) -> Bool in
-                    var isValidation = false
-                    
+                .filter { (_, number) -> Bool in
                     if number.isEmpty {
-                        isValidation = false
-                    } else {
-                        isValidation = true
+                        return false
                     }
-                    debugPrint("isValidation \(isValidation)")
-                    return isValidation
+                    return true
                 }.flatMapLatest { (userId, number) -> Observable<APIResult<AttendResponse>> in
+                    guard let number = Int(number) else { fatalError("Invalid Attend Number") }
+                    let body = AttendRequest(userId: userId, number: number)
                     
-                    let attendRequest = AttendRequest(userId: "\(userId)", number: number)
-                    
-                    let param = attendRequest.dictionary
-                    return attendService.check(token: accessToken, param: param).catchError({ (error) -> Observable<APIResult<AttendResponse>> in
-                        Observable.just(APIResult.Error(error))
+                    let param = body.dictionary
+                    return attendService.check(token: accessToken, param: param)
+                        .catchError({ (error) -> Observable<APIResult<AttendResponse>> in
+                            Observable.just(APIResult.Error(error))
                     })
                         .trackActivity(self.progressView)
                         .observeOn(MainScheduler.instance)
             }
-        case .admin:
-            attendResult = tapAttend.withLatestFrom(attendButtonFlag).flatMapLatest { (isSelected) -> Observable<APIResult<AttendResponse>> in
+        case .admin:  // Admin User Type
+            attendResult = tapAttend.withLatestFrom(attendButtonFlag)
+                .flatMapLatest { (isSelected) -> Observable<APIResult<AttendResponse>> in
                 if isSelected {
-                    print("start")
-                    return attendService.start(token: accessToken).catchError({ (error) -> Observable<APIResult<AttendResponse>> in
-                        Observable.just(APIResult.Error(error))
+                    return attendService.start(token: accessToken)
+                        .catchError({ (error) -> Observable<APIResult<AttendResponse>> in
+                            Observable.just(APIResult.Error(error))
                     })
                         .trackActivity(self.progressView)
                         .observeOn(MainScheduler.instance)
                 }
-                print("end")
-                return attendService.end(token: accessToken).catchError({ (error) -> Observable<APIResult<AttendResponse>> in
-                    Observable.just(APIResult.Error(error))
+                return attendService.end(token: accessToken)
+                    .catchError({ (error) -> Observable<APIResult<AttendResponse>> in
+                        Observable.just(APIResult.Error(error))
                 })
                     .trackActivity(self.progressView)
                     .observeOn(MainScheduler.instance)
-            }
-        }
-    }
-    
-    private enum User {
-        case general
-        case admin
-        
-        init(type: Int) {
-            switch type {
-            case 1: self = .admin
-            case 2: self = .general
-            default: fatalError("Invalid User Type")
             }
         }
     }
