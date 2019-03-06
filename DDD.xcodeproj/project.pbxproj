@@ -14,6 +14,9 @@
 		5B36048C222CE74100C5F84E /* SplashAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B36048B222CE74100C5F84E /* SplashAnimationView.swift */; };
 		5B36048E222D221600C5F84E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B36048D222D221600C5F84E /* UIView.swift */; };
 		5B360492222D29BA00C5F84E /* CommonAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B360491222D29BA00C5F84E /* CommonAlert.swift */; };
+		5B360494222E68AA00C5F84E /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B360493222E68AA00C5F84E /* UIDevice.swift */; };
+		5B360496222E6A3600C5F84E /* DeviceFontSizeLabel+iPhone4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B360495222E6A3600C5F84E /* DeviceFontSizeLabel+iPhone4.swift */; };
+		5B360498222E6A6800C5F84E /* DeviceFontSizeLabel+iPhone5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B360497222E6A6800C5F84E /* DeviceFontSizeLabel+iPhone5.swift */; };
 		5BA8BEB922192E4300B0CB17 /* ButtonWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEB822192E4300B0CB17 /* ButtonWithShadow.swift */; };
 		5BA8BEBB22193F2000B0CB17 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEBA22193F2000B0CB17 /* LoginService.swift */; };
 		5BA8BEBE2219400800B0CB17 /* LoginReqeust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8BEBD2219400800B0CB17 /* LoginReqeust.swift */; };
@@ -75,6 +78,9 @@
 		5B36048B222CE74100C5F84E /* SplashAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimationView.swift; sourceTree = "<group>"; };
 		5B36048D222D221600C5F84E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5B360491222D29BA00C5F84E /* CommonAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonAlert.swift; sourceTree = "<group>"; };
+		5B360493222E68AA00C5F84E /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		5B360495222E6A3600C5F84E /* DeviceFontSizeLabel+iPhone4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceFontSizeLabel+iPhone4.swift"; sourceTree = "<group>"; };
+		5B360497222E6A6800C5F84E /* DeviceFontSizeLabel+iPhone5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceFontSizeLabel+iPhone5.swift"; sourceTree = "<group>"; };
 		5BA8BEB822192E4300B0CB17 /* ButtonWithShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithShadow.swift; sourceTree = "<group>"; };
 		5BA8BEBA22193F2000B0CB17 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		5BA8BEBD2219400800B0CB17 /* LoginReqeust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReqeust.swift; sourceTree = "<group>"; };
@@ -274,6 +280,9 @@
 				BC9AFFD322291CED00C58A0C /* Colors.swift */,
 				BCFCC30B222BBBA500BA03AF /* Extension+UIView.swift */,
 				5B36048D222D221600C5F84E /* UIView.swift */,
+				5B360493222E68AA00C5F84E /* UIDevice.swift */,
+				5B360495222E6A3600C5F84E /* DeviceFontSizeLabel+iPhone4.swift */,
+				5B360497222E6A6800C5F84E /* DeviceFontSizeLabel+iPhone5.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -675,8 +684,11 @@
 				5BA8BEC4221945DD00B0CB17 /* ActivityIndicator.swift in Sources */,
 				BC9AFFC72227D8B400C58A0C /* AttendViewController.swift in Sources */,
 				BC9AFFCA2227D8CD00C58A0C /* AttendViewModel.swift in Sources */,
+				5B360498222E6A6800C5F84E /* DeviceFontSizeLabel+iPhone5.swift in Sources */,
 				5BA8BEC22219403D00B0CB17 /* Encodable.swift in Sources */,
 				5BEAA3AD22191E8E003352E9 /* Request.swift in Sources */,
+				5B360496222E6A3600C5F84E /* DeviceFontSizeLabel+iPhone4.swift in Sources */,
+				5B360494222E68AA00C5F84E /* UIDevice.swift in Sources */,
 				5BEAA36922191818003352E9 /* LoginViewController.swift in Sources */,
 				5BEAA3AF22192B92003352E9 /* UnderLineTextField.swift in Sources */,
 				BC9AFFD02227E46400C58A0C /* AttendResponse.swift in Sources */,
@@ -885,7 +897,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.ddd.DDD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -905,7 +917,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.ddd.DDD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

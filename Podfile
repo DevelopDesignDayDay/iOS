@@ -41,7 +41,7 @@ target 'DDD' do
   pod 'SVProgressHUD'
   pod 'MaterialTextField'
   pod 'lottie-ios'
-
+  
   target 'DDDTests' do
     inherit! :search_paths
     # Pods for testing
