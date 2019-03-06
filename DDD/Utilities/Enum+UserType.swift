@@ -13,6 +13,13 @@ enum UserType: Int {
     case general = 2
     case admin = 1
     
+    init(userType: Int) {
+        switch userType {
+        case 1: self = .admin
+        default: self = .general
+        }
+    }
+    
     var backgroundColor: UIColor {
         switch self {
         case .general: return UIColor.white
