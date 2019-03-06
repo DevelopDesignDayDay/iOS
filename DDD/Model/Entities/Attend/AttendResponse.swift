@@ -12,6 +12,7 @@ struct AttendResponse {
     let status: String
     let message: String?
     let number: Int?
+    let userId: Int?
 }
 
 extension AttendResponse: Himotoki.Decodable {
@@ -19,7 +20,8 @@ extension AttendResponse: Himotoki.Decodable {
         return try AttendResponse(
             status: e <| "status",
             message: e <|? "message",
-            number: e <|? "number"
+            number: e <|? "number",
+            userId: e <|? "userId"
         )
     }
 }
