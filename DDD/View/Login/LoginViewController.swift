@@ -109,7 +109,7 @@ class LoginViewController: UIViewController {
                 ) as? AttendViewController else { fatalError("Invalid Identifier") }
         attendVC.userType = data.type
         attendVC.userId = data.id
-        self.present(attendVC, animated: true, completion: nil)
+        self.present(attendVC, animated: false, completion: nil)
     }
     
     private func setUserDefaults(to data: LoginResponse) {
