@@ -28,7 +28,7 @@ class AttendViewController: UIViewController {
     var userType: Int? {
         didSet {
             guard let userType = userType else { return }
-            setupViewStyle(by: userType)
+            setupViewUI(by: userType)
         }
     }
     var userId: Int? {
@@ -40,9 +40,18 @@ class AttendViewController: UIViewController {
     var userIdRelay: BehaviorRelay<Int> = BehaviorRelay(value: -1)
     var buttonFlagRelay: BehaviorRelay<Bool> = BehaviorRelay(value: true)
     var attendResponseData: AttendResponse?
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        guard let userType = userType else { fatalError() }
+        switch UserType(userType: userType) {
+        case .general: return .default
+        case .admin: return .lightContent
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        numberTextField.delegate = self
         setupRx()
         configureShadow(to: buttonBackgroundView)
     }
@@ -64,43 +73,81 @@ class AttendViewController: UIViewController {
             .bind(to: attendViewModel.userId)
             .disposed(by: disposeBag)
         
+        buttonFlagRelay
+            .bind(to: attendViewModel.attendButtonFlag)
+            .disposed(by: disposeBag)
+        
         attendViewModel.attendResult.subscribe(onNext: { [weak self] (response) in
             guard let self = self else { return }
+            guard let userType = self.userType else { return }
             switch response {
             case .Success(let data):
-                debugPrint("data \(data)")
                 self.attendResponseData = data
-                guard let number = self.attendResponseData?.number else { return }
-                self.numberTextField.text = "\(number)"
+                switch UserType(userType: userType) {
+                case .admin:
+                    guard let number = self.attendResponseData?.number else { return }
+                    self.numberTextField.text = "\(number)"
+                case .general:
+                    guard let message = data.message else { return }
+                    let popUpView = PopUpView(frame: self.view.bounds)
+                    popUpView.setupPopUpView(by: userType, true, message)
+                    self.showAnimation(to: popUpView)
+                }
             case .Error(let error):
-                debugPrint("error \(error)")
+                guard let apiError = error as? ApiError else { return }
+                guard let message = apiError.message else { return }
+                switch UserType(userType: userType) {
+                case .admin:
+                    return
+                case .general:
+                    let popUpView = PopUpView(frame: self.view.bounds)
+                    popUpView.setupPopUpView(by: userType, false, message)
+                    self.showAnimation(to: popUpView)
+                }
             }
         }).disposed(by: disposeBag)
+        
+        if let formValidation = attendViewModel.formValidation {
+            formValidation.subscribe(onNext: { [weak self] (textField) in
+                guard let self = self else { return }
+                if textField.count > 0 {
+                    self.attendButton.backgroundColor = UIColor.dddBlack
+                } else {
+                    self.attendButton.backgroundColor = UIColor.dddButtonGray
+                }
+            }).disposed(by: disposeBag)
+        }
         
         attendButton.rx.tap.scan(true) { lastState, newValue in
             return !lastState
             }.subscribe(onNext: { [weak self] (isSelected) in
                 guard let self = self else { return }
+                guard let userType = self.userType else { return }
                 self.buttonFlagRelay.accept(isSelected)
-                if isSelected {
-                    self.attendButton.backgroundColor = UIColor.dddGray
-                    self.attendButton.setTitle("출석체크 시작", for: .normal)
-                    self.attendButton.setTitleColor(UIColor.white, for: .normal)
-                    self.numberTextField.text = ""
-                } else {
-                    self.attendButton.backgroundColor = UIColor.white
-                    self.attendButton.setTitle("출석체크 종료", for: .normal)
-                    self.attendButton.setTitleColor(UIColor.dddBlack, for: .normal)
+                switch UserType(userType: userType) {
+                case .admin:
+                    self.setupAttendButton(by: isSelected)
+                case .general:
+                    return
                 }
-            }).disposed(by: disposeBag)
-        
-        buttonFlagRelay
-            .bind(to: attendViewModel.attendButtonFlag)
-            .disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
     }
     
-    private func setupViewStyle(by type: Int) {
-        guard let type = UserType.init(rawValue: type) else { fatalError("Invalid User Type") }
+    private func setupAttendButton(by isSelected: Bool) {
+        let title = isSelected ? "출석체크 시작" : "출석체크 종료"
+        let color = isSelected ? UIColor.white : UIColor.dddBlack
+        attendButton.backgroundColor = isSelected ? UIColor.dddButtonGray : UIColor.white
+        attendButton.setTitle(title, for: .normal)
+        attendButton.setTitleColor(color, for: .normal)
+        if isSelected {
+            numberTextField.text = ""
+        }
+    }
+    
+    private func setupViewUI(by type: Int) {
+        guard let type = UserType.init(rawValue: type) else {
+            fatalError("Invalid User Type")
+        }
         self.view.backgroundColor = type.backgroundColor
         numberTextField.textColor = type.textFieldColor
         numberTextField.isEnabled = type.textFieldEditable
@@ -130,5 +177,28 @@ class AttendViewController: UIViewController {
             width: CGFloat(0.0),
             height: CGFloat(0.0)
         )
+    }
+    
+    private func showAnimation(to view : UIView) {
+        UIView.transition(
+            with: self.view,
+            duration: 0.25,
+            options: [.transitionCrossDissolve],
+            animations: {
+                self.view.addSubview(view)
+        }, completion: nil)
+    }
+}
+
+extension AttendViewController: UITextFieldDelegate {
+    
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+        guard let text = textField.text else { return true }
+        let count = text.count + string.count - range.length
+        return count <= 2
     }
 }
