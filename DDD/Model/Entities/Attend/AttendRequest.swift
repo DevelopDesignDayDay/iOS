@@ -9,10 +9,10 @@
 import Foundation
 
 struct AttendRequest: Codable {
-    let userId: String
-    let number: String
+    let userId: Int
+    let number: Int
     
-    init(userId: String, number: String) {
+    init(userId: Int, number: Int) {
         self.userId = userId
         self.number = number
     }
