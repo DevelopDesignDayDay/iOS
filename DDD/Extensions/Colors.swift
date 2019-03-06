@@ -21,4 +21,7 @@ extension UIColor {
     class var dddBlack: UIColor {
         return UIColor(red: 21/255.0, green: 21/255.0, blue: 21/255.0, alpha: 1.0)
     }
+    class var dddButtonGray: UIColor {
+        return UIColor(red: 153/255.0, green: 153/255.0, blue: 153/255.0, alpha: 1.0)
+    }
 }
