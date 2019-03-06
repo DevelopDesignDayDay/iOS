@@ -392,11 +392,7 @@ final class Network: Networking {
             
             debugPrint(headers)
             
-            if method == .get {
-                request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters, headers: headers)
-            } else {
-                request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
-            }
+            request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters, headers: headers)
             
             request
                 .debugLog()
@@ -404,10 +400,7 @@ final class Network: Networking {
                 .responseJSON(queue: self.queue) { response in
                     switch response.result {
                     case .success(let value):
-                        debugPrint("200")
-                        
                         do {
-                            //debugPrint(value)
                             let data = try D.decodeValue(value)
                             observer.onNext(APIResult.Success(data))
                             observer.onCompleted()
@@ -423,13 +416,11 @@ final class Network: Networking {
                         
                     case .failure(let error):
                         var apiError: ApiError
-                        
-                        //debugPrint("error")
+
                         debugPrint(error)
                         
                         if let data = response.data {
                             apiError = self.parsingErrorBody(data: data)
-                            //debugPrint("api Error : \(apiError)")
                             observer.onError(apiError)
                         } else {
                             apiError = ApiError(date: nil,
