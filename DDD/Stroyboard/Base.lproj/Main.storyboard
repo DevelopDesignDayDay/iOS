@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,13 +13,13 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="DDD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="DDD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="f3i-Dr-IAr">
-                                <rect key="frame" x="35" y="101" width="305" height="445.5"/>
+                                <rect key="frame" x="35" y="96.5" width="305" height="454.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wsU-H8-hVh">
                                         <rect key="frame" x="0.0" y="0.0" width="286" height="132.5"/>
@@ -113,36 +113,49 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rA-ce-2hl" customClass="ButtonWithShadow" customModule="DDD" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="394.5" width="305" height="51"/>
-                                        <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Op7-Hi-8jr">
+                                        <rect key="frame" x="0.0" y="394.5" width="305" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rA-ce-2hl">
+                                                <rect key="frame" x="0.0" y="4.5" width="305" height="51"/>
+                                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="51" id="NhU-pn-lzT"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                <state key="normal" title="로그인">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="bgShadowColor">
+                                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="51" id="NhU-pn-lzT"/>
+                                            <constraint firstAttribute="height" constant="60" id="3rW-1B-kGW"/>
+                                            <constraint firstItem="2rA-ce-2hl" firstAttribute="centerX" secondItem="Op7-Hi-8jr" secondAttribute="centerX" id="EPe-am-z6p"/>
+                                            <constraint firstItem="2rA-ce-2hl" firstAttribute="centerY" secondItem="Op7-Hi-8jr" secondAttribute="centerY" id="PEo-De-RaX"/>
+                                            <constraint firstAttribute="trailing" secondItem="2rA-ce-2hl" secondAttribute="trailing" id="lbM-hQ-npm"/>
+                                            <constraint firstItem="2rA-ce-2hl" firstAttribute="leading" secondItem="Op7-Hi-8jr" secondAttribute="leading" id="uX3-ya-zbh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                        <state key="normal" title="로그인">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="bgShadowColor">
-                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="fpH-5M-c5K" firstAttribute="leading" secondItem="f3i-Dr-IAr" secondAttribute="leading" id="36b-y9-ANg"/>
-                                    <constraint firstAttribute="trailing" secondItem="2rA-ce-2hl" secondAttribute="trailing" id="5gE-Jy-iQo"/>
-                                    <constraint firstItem="2rA-ce-2hl" firstAttribute="leading" secondItem="f3i-Dr-IAr" secondAttribute="leading" id="Sbz-we-X8O"/>
+                                    <constraint firstItem="Op7-Hi-8jr" firstAttribute="leading" secondItem="f3i-Dr-IAr" secondAttribute="leading" id="BJO-jj-f1i"/>
+                                    <constraint firstAttribute="trailing" secondItem="Op7-Hi-8jr" secondAttribute="trailing" id="h2N-pj-lIj"/>
                                     <constraint firstAttribute="trailing" secondItem="fpH-5M-c5K" secondAttribute="trailing" id="m7s-sk-6kM"/>
                                 </constraints>
                             </stackView>
@@ -158,7 +171,8 @@
                     </view>
                     <connections>
                         <outlet property="idTextField" destination="d6d-TR-Fn9" id="mX2-Nc-RhZ"/>
-                        <outlet property="loginButton" destination="2rA-ce-2hl" id="yBG-Ve-Sja"/>
+                        <outlet property="loginButton" destination="2rA-ce-2hl" id="IPD-e1-nYS"/>
+                        <outlet property="loginButtonBgView" destination="Op7-Hi-8jr" id="abp-JR-z5x"/>
                         <outlet property="passwordTextField" destination="wus-q2-Txd" id="EYM-fN-3GE"/>
                     </connections>
                 </viewController>

@@ -39,7 +39,6 @@ target 'DDD' do
   pod 'IQKeyboardManagerSwift'
   pod 'TPKeyboardAvoiding', :git => 'https://github.com/michaeltyson/TPKeyboardAvoiding.git'
   pod 'SVProgressHUD'
-  pod 'MaterialTextField'
   pod 'lottie-ios'
   
   target 'DDDTests' do
