@@ -24,6 +24,7 @@ class AttendViewController: UIViewController {
     private var attendViewModel = AttendViewModel(attendService: AttendService())
     private weak var shadowView: UIView?
     private let disposeBag = DisposeBag()
+    private let splash = SplashAnimationView()
     
     var userType: Int? {
         didSet {
@@ -37,6 +38,13 @@ class AttendViewController: UIViewController {
             self.userIdRelay.accept(userId)
         }
     }
+    var isSplash: Bool? {
+        didSet {
+            view.addSubview(splash)
+            splash.pinEdgesToSuperView()
+        }
+    }
+    
     var userIdRelay: BehaviorRelay<Int> = BehaviorRelay(value: -1)
     var buttonFlagRelay: BehaviorRelay<Bool> = BehaviorRelay(value: true)
     var attendResponseData: AttendResponse?
@@ -54,6 +62,16 @@ class AttendViewController: UIViewController {
         numberTextField.delegate = self
         setupRx()
         configureShadow(to: buttonBackgroundView)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        splash.splash.play { [unowned self] (isComplete) in
+            self.splash.isHidden = true
+            debugPrint("isPlay \(isComplete)")
+        }
+        
     }
     
     private func setupRx() {

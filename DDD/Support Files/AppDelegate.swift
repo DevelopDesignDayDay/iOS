@@ -28,6 +28,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         #endif
         
+        let isLogin = UserDefaults.standard.string(forKey: "accessToken")
+        
+        if isLogin != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let attendViewController = storyboard.instantiateViewController(withIdentifier: "AttendViewController") as? AttendViewController else { fatalError("Invalid Identifier") }
+            attendViewController.isSplash = true
+            attendViewController.userId = UserDefaults.standard.integer(forKey: "userId")
+            attendViewController.userType = UserDefaults.standard.integer(forKey: "userType")
+            self.window?.rootViewController = attendViewController
+            self.window?.makeKeyAndVisible()
+        }
+        
         return true
     }
 

@@ -17,7 +17,9 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UnderLineTextField!
     
-    @IBOutlet weak var loginButton: ButtonWithShadow!
+    @IBOutlet weak var loginButtonBgView: UIView!
+    
+    @IBOutlet weak var loginButton: UIButton!
     
     private var loginViewModel: LoginViewModeling!
     
@@ -26,6 +28,8 @@ class LoginViewController: UIViewController {
     private let attendViewControllerIdentifier = "AttendViewController"
 
     private let splash = SplashAnimationView()
+    
+    private weak var shadowView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +45,10 @@ class LoginViewController: UIViewController {
             self.splash.isHidden = true
             debugPrint("isPlay \(isComplete)")
         }
+        
+        loginButton.layer.masksToBounds = true
+        loginButton.layer.cornerRadius = 6
+        configureShadow(to: loginButtonBgView)
     }
     
     func initView() {
@@ -90,11 +98,11 @@ class LoginViewController: UIViewController {
                 debugPrint("account \(account) pw \(pw)")
                 
                 if account.count > 0 && pw.count > 0 {
-                    self.loginButton.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
-                    self.loginButton.isEnabled = true
+                    self.loginButton.backgroundColor = UIColor.dddBlack
+                    //self.loginButton.isEnabled = true
                 } else {
-                    self.loginButton.backgroundColor = UIColor(red: 153/255, green: 153/255, blue: 153/255, alpha: 1.0)
-                    self.loginButton.isEnabled = false
+                    self.loginButton.backgroundColor = UIColor.dddButtonGray
+                    //self.loginButton.isEnabled = false
                 }
                 
             }).disposed(by: disposeBag)
@@ -119,4 +127,23 @@ class LoginViewController: UIViewController {
         UserDefaults.standard.setValue(data.user.type, forKey: "userType")
         UserDefaults.standard.synchronize()
     }
+    
+    private func configureShadow(to view: UIView) {
+        let shadowView = UIView(
+            frame: CGRect(
+                x: 0,
+                y: 8,
+                width: view.bounds.width,
+                height: view.bounds.height
+            )
+        )
+        view.insertSubview(shadowView, at: 0)
+        self.shadowView = shadowView
+        view.applyShadow(
+            shadowView: shadowView,
+            width: CGFloat(0.0),
+            height: CGFloat(0.0)
+        )
+    }
+    
 }
