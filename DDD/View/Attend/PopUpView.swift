@@ -14,6 +14,7 @@ class PopUpView: UIView {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    @IBOutlet weak var acceptButton: UIButton!
     @IBAction func acceptButton(_ sender: Any) {
         self.removeAnimate()
     }
@@ -44,6 +45,8 @@ class PopUpView: UIView {
         switch UserType(userType: userType) {
         case .admin:
             backgroundView.backgroundColor = UIColor.dddRed
+            descriptionLabel.text = message
+            imageView.image = isSuccess ? #imageLiteral(resourceName: "popupCheckIcon") : #imageLiteral(resourceName: "popupExclamationMarkIcon")
         case .general:
             descriptionLabel.text = message
             imageView.image = isSuccess ? #imageLiteral(resourceName: "popupCheckIcon") : #imageLiteral(resourceName: "popupExclamationMarkIcon")

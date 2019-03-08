@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpView" customModule="DDD" customModuleProvider="target">
             <connections>
+                <outlet property="acceptButton" destination="cgD-Zc-chP" id="8cW-FC-gRz"/>
                 <outlet property="backgroundView" destination="Q0k-bs-oXJ" id="Km5-GQ-TEB"/>
                 <outlet property="descriptionLabel" destination="PaS-Rt-Piv" id="RNx-hA-FX0"/>
                 <outlet property="imageView" destination="sET-jY-phw" id="1sl-4J-Rf5"/>
