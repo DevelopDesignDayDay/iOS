@@ -92,7 +92,6 @@ class AttendViewController: UIViewController {
         accessToken = UserDefaults.standard.string(forKey: "accessToken")
         numberTextField.delegate = self
         setupRx()
-        configureShadow(to: buttonBackgroundView)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -102,7 +101,7 @@ class AttendViewController: UIViewController {
             self.splash.isHidden = true
             debugPrint("isPlay \(isComplete)")
         }
-        
+        configureShadow(to: buttonBackgroundView)
     }
     
     private func setupRx() {
