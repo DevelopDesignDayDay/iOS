@@ -21,10 +21,24 @@ class AttendViewController: UIViewController {
     @IBOutlet weak var attendButton: UIButton!
     @IBOutlet weak var buttonBackgroundView: UIView!
     
-    private var attendViewModel = AttendViewModel(attendService: AttendService())
+    @IBOutlet weak var refreshPopUpBackgroundView: UIView!
+    @IBOutlet weak var refreshPopupView: UIView! {
+        didSet {
+            refreshPopupView.layer.masksToBounds = true
+            refreshPopupView.layer.cornerRadius = 16
+        }
+    }
+    @IBOutlet weak var refreshPopupButton: UIButton!
+    @IBAction func refreshPopupButton(_ sender: Any) {
+        refreshPopUpBackgroundView.isHidden = true
+    }
+    
+    private var attendViewModel = AttendViewModel(attendService: AttendService(), refreshService: RefreshService())
     private weak var shadowView: UIView?
     private let disposeBag = DisposeBag()
     private let splash = SplashAnimationView()
+    private var refreshAction: UIAlertAction!
+    private let loginViewControllerIdentifier = "LoginViewController"
     
     var userType: Int? {
         didSet {
@@ -44,10 +58,25 @@ class AttendViewController: UIViewController {
             splash.pinEdgesToSuperView()
         }
     }
+    var refreshToken: String? {
+        didSet {
+            guard let refreshToken = refreshToken else { return }
+            self.refreshTokenRelay.accept(refreshToken)
+        }
+    }
+    var accessToken: String? {
+        didSet {
+            guard let accessToken = accessToken else { return }
+            self.accessTokenRelay.accept(accessToken)
+        }
+    }
     
     var userIdRelay: BehaviorRelay<Int> = BehaviorRelay(value: -1)
     var buttonFlagRelay: BehaviorRelay<Bool> = BehaviorRelay(value: true)
+    var refreshTokenRelay: BehaviorRelay<String> = BehaviorRelay(value: "")
+    var accessTokenRelay: BehaviorRelay<String> = BehaviorRelay(value: "")
     var attendResponseData: AttendResponse?
+    let refreshService = RefreshService()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         guard let userType = userType else { fatalError() }
@@ -59,6 +88,8 @@ class AttendViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshToken = UserDefaults.standard.string(forKey: "refreshToken")
+        accessToken = UserDefaults.standard.string(forKey: "accessToken")
         numberTextField.delegate = self
         setupRx()
         configureShadow(to: buttonBackgroundView)
@@ -95,6 +126,18 @@ class AttendViewController: UIViewController {
             .bind(to: attendViewModel.attendButtonFlag)
             .disposed(by: disposeBag)
         
+        refreshTokenRelay
+            .bind(to: attendViewModel.refreshToken)
+            .disposed(by: disposeBag)
+        
+        accessTokenRelay
+            .bind(to: attendViewModel.accessToken)
+            .disposed(by: disposeBag)
+        
+        refreshPopupButton.rx.tap
+            .bind(to: attendViewModel.tapRefresh)
+            .disposed(by: disposeBag)
+        
         attendViewModel.attendResult.subscribe(onNext: { [weak self] (response) in
             guard let self = self else { return }
             guard let userType = self.userType else { return }
@@ -112,15 +155,20 @@ class AttendViewController: UIViewController {
                     self.showAnimation(to: popUpView)
                 }
             case .Error(let error):
+                debugPrint(error)
                 guard let apiError = error as? ApiError else { return }
                 guard let message = apiError.message else { return }
-                switch UserType(userType: userType) {
-                case .admin:
-                    return
-                case .general:
-                    let popUpView = PopUpView(frame: self.view.bounds)
-                    popUpView.setupPopUpView(by: userType, false, message)
-                    self.showAnimation(to: popUpView)
+                if message == "Invalid Token" {
+                    self.refreshPopUpBackgroundView.isHidden = false
+                } else {
+                    switch UserType(userType: userType) {
+                    case .admin:
+                        return
+                    case .general:
+                        let popUpView = PopUpView(frame: self.view.bounds)
+                        popUpView.setupPopUpView(by: userType, false, message)
+                        self.showAnimation(to: popUpView)
+                    }
                 }
             }
         }).disposed(by: disposeBag)
@@ -148,6 +196,29 @@ class AttendViewController: UIViewController {
                 case .general:
                     return
                 }
+        }).disposed(by: disposeBag)
+        
+        attendViewModel.refreshResult.subscribe(onNext: { [weak self] (response) in
+            guard let self = self else { return }
+            switch response {
+            case .Success(let data):
+                debugPrint(data)
+                UserDefaults.standard.setValue(data.accessToken, forKey: "accessToken")
+                UserDefaults.standard.setValue(data.refreshToken, forKey: "refreshToken")
+                UserDefaults.standard.synchronize()
+                self.accessToken = data.accessToken
+                self.refreshToken = data.refreshToken
+                let popUpView = PopUpView(frame: self.view.bounds)
+                popUpView.setupPopUpView(by: 1, true, "토큰이\n갱신되었습니다.")
+                self.showAnimation(to: popUpView)
+            case .Error(let error):
+                debugPrint(error)
+                let domain = Bundle.main.bundleIdentifier!
+                UserDefaults.standard.removePersistentDomain(forName: domain)
+                UserDefaults.standard.synchronize()
+                let loginVC = self.storyboard?.instantiateViewController(withIdentifier: self.loginViewControllerIdentifier)
+                UIApplication.shared.keyWindow?.rootViewController = loginVC
+            }
         }).disposed(by: disposeBag)
     }
     
