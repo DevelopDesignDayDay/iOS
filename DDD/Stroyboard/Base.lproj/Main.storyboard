@@ -363,7 +363,7 @@
                             <constraint firstItem="b4O-UO-tng" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DN0-R1-inJ" secondAttribute="trailing" constant="30" id="QgU-ej-GWb"/>
                             <constraint firstItem="6d2-Y8-NvR" firstAttribute="leading" secondItem="b4O-UO-tng" secondAttribute="leading" id="SWb-wP-OMd"/>
                             <constraint firstItem="6d2-Y8-NvR" firstAttribute="trailing" secondItem="b4O-UO-tng" secondAttribute="trailing" id="d9x-Wy-ay6"/>
-                            <constraint firstItem="6d2-Y8-NvR" firstAttribute="bottom" secondItem="b4O-UO-tng" secondAttribute="bottom" id="nw6-GO-ObQ"/>
+                            <constraint firstItem="6d2-Y8-NvR" firstAttribute="bottom" secondItem="YBp-6L-uP1" secondAttribute="bottom" id="nw6-GO-ObQ"/>
                             <constraint firstItem="6d2-Y8-NvR" firstAttribute="top" secondItem="YBp-6L-uP1" secondAttribute="top" id="vHj-cA-sb7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b4O-UO-tng"/>
