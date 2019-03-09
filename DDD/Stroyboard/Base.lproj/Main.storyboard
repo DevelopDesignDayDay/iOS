@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -284,6 +284,74 @@
                                     <constraint firstAttribute="bottom" secondItem="WYk-Xf-O6S" secondAttribute="bottom" id="yId-nQ-m2U"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6d2-Y8-NvR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIN-XK-ywm">
+                                        <rect key="frame" x="38" y="158" width="299" height="351"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoi-f4-ybj">
+                                                <rect key="frame" x="0.0" y="283" width="299" height="68"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="hoi-f4-ybj" secondAttribute="height" multiplier="299:68" id="qtt-G9-XFD"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                <state key="normal" title="갱신">
+                                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="refreshPopupButton:" destination="lNE-12-y80" eventType="touchUpInside" id="cxY-Sf-yUb"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="tuK-iO-hGY">
+                                                <rect key="frame" x="77" y="48" width="145.5" height="197"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popupExclamationMarkIcon" translatesAutoresizingMaskIntoConstraints="NO" id="4qQ-FH-NXg">
+                                                        <rect key="frame" x="12.5" y="0.0" width="120" height="120"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="4qQ-FH-NXg" secondAttribute="height" multiplier="1:1" id="hxK-cn-g1p"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="토큰이 만료되었습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIi-bT-MQp">
+                                                        <rect key="frame" x="0.0" y="142" width="145.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="9Te-yL-Qbo"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="font_5s">
+                                                                <real key="value" value="18"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="font_4s">
+                                                                <real key="value" value="18"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.93725490196078431" green="0.18823529411764706" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="hoi-f4-ybj" firstAttribute="leading" secondItem="OIN-XK-ywm" secondAttribute="leading" id="Aoh-Q4-Udi"/>
+                                            <constraint firstAttribute="bottom" secondItem="hoi-f4-ybj" secondAttribute="bottom" id="BfV-9c-fkS"/>
+                                            <constraint firstItem="tuK-iO-hGY" firstAttribute="centerX" secondItem="OIN-XK-ywm" secondAttribute="centerX" id="VKR-YM-AFb"/>
+                                            <constraint firstItem="tuK-iO-hGY" firstAttribute="top" secondItem="OIN-XK-ywm" secondAttribute="top" constant="48" id="dlk-ei-cu7"/>
+                                            <constraint firstAttribute="width" secondItem="OIN-XK-ywm" secondAttribute="height" multiplier="23:27" id="pyC-uN-v7l"/>
+                                            <constraint firstAttribute="trailing" secondItem="hoi-f4-ybj" secondAttribute="trailing" id="rtF-qs-8Si"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="299" id="wN2-aJ-lEB"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="OIN-XK-ywm" firstAttribute="width" secondItem="OIN-XK-ywm" secondAttribute="height" multiplier="23:27" id="8I1-Mn-xvJ"/>
+                                    <constraint firstItem="OIN-XK-ywm" firstAttribute="centerX" secondItem="6d2-Y8-NvR" secondAttribute="centerX" id="8Lb-eb-xfe"/>
+                                    <constraint firstItem="OIN-XK-ywm" firstAttribute="centerY" secondItem="6d2-Y8-NvR" secondAttribute="centerY" id="PTx-F6-6W0"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -293,6 +361,10 @@
                             <constraint firstItem="Oiw-te-tNU" firstAttribute="centerX" secondItem="YBp-6L-uP1" secondAttribute="centerX" id="HOA-hf-DFY"/>
                             <constraint firstItem="DN0-R1-inJ" firstAttribute="centerY" secondItem="YBp-6L-uP1" secondAttribute="centerY" constant="-50" id="JWO-Yj-2Yp"/>
                             <constraint firstItem="b4O-UO-tng" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DN0-R1-inJ" secondAttribute="trailing" constant="30" id="QgU-ej-GWb"/>
+                            <constraint firstItem="6d2-Y8-NvR" firstAttribute="leading" secondItem="b4O-UO-tng" secondAttribute="leading" id="SWb-wP-OMd"/>
+                            <constraint firstItem="6d2-Y8-NvR" firstAttribute="trailing" secondItem="b4O-UO-tng" secondAttribute="trailing" id="d9x-Wy-ay6"/>
+                            <constraint firstItem="6d2-Y8-NvR" firstAttribute="bottom" secondItem="YBp-6L-uP1" secondAttribute="bottom" id="nw6-GO-ObQ"/>
+                            <constraint firstItem="6d2-Y8-NvR" firstAttribute="top" secondItem="YBp-6L-uP1" secondAttribute="top" id="vHj-cA-sb7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b4O-UO-tng"/>
                     </view>
@@ -302,6 +374,9 @@
                         <outlet property="circleBackgroundImageView" destination="1We-9K-lw8" id="JIy-hg-964"/>
                         <outlet property="descriptionLabel" destination="9tf-j1-aWo" id="MBu-Fm-jdz"/>
                         <outlet property="numberTextField" destination="C2U-0z-WfS" id="j12-k7-b9E"/>
+                        <outlet property="refreshPopUpBackgroundView" destination="6d2-Y8-NvR" id="TOZ-KA-SFz"/>
+                        <outlet property="refreshPopupButton" destination="hoi-f4-ybj" id="J3h-oW-Uzg"/>
+                        <outlet property="refreshPopupView" destination="OIN-XK-ywm" id="skC-gJ-RWa"/>
                         <outlet property="titleLabel" destination="Aw5-MU-v8g" id="nWl-nV-ABx"/>
                     </connections>
                 </viewController>
@@ -312,5 +387,6 @@
     </scenes>
     <resources>
         <image name="normalBlackRound" width="211" height="211"/>
+        <image name="popupExclamationMarkIcon" width="120" height="120"/>
     </resources>
 </document>

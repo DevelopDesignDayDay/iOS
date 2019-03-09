@@ -40,6 +40,9 @@
 		5BEAA3AD22191E8E003352E9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEAA3AC22191E8E003352E9 /* Request.swift */; };
 		5BEAA3AF22192B92003352E9 /* UnderLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEAA3AE22192B92003352E9 /* UnderLineTextField.swift */; };
 		A4F6E952BE65E371DDB0FEAF /* Pods_DDDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E809C28B4F9C9C22E8CA337F /* Pods_DDDUITests.framework */; };
+		BC0C9C412230FEA400919504 /* RefreshRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0C9C402230FEA400919504 /* RefreshRequest.swift */; };
+		BC0C9C432230FEE400919504 /* RefreshResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0C9C422230FEE400919504 /* RefreshResponse.swift */; };
+		BC0C9C462230FF5200919504 /* RefreshService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0C9C452230FF5200919504 /* RefreshService.swift */; };
 		BC9AFFC42227D56B00C58A0C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC9AFFC32227D56B00C58A0C /* Localizable.strings */; };
 		BC9AFFC72227D8B400C58A0C /* AttendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9AFFC62227D8B400C58A0C /* AttendViewController.swift */; };
 		BC9AFFCA2227D8CD00C58A0C /* AttendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9AFFC92227D8CD00C58A0C /* AttendViewModel.swift */; };
@@ -114,6 +117,9 @@
 		8B9B2C07C26A38868651A6D4 /* Pods-DDDUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDDUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDDUITests/Pods-DDDUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		909994EEA04F38A4B17BD45F /* Pods_DDDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB214140E48D80919A363775 /* Pods-DDDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDDTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDDTests/Pods-DDDTests.release.xcconfig"; sourceTree = "<group>"; };
+		BC0C9C402230FEA400919504 /* RefreshRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshRequest.swift; sourceTree = "<group>"; };
+		BC0C9C422230FEE400919504 /* RefreshResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshResponse.swift; sourceTree = "<group>"; };
+		BC0C9C452230FF5200919504 /* RefreshService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshService.swift; sourceTree = "<group>"; };
 		BC9AFFC32227D56B00C58A0C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		BC9AFFC62227D8B400C58A0C /* AttendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendViewController.swift; sourceTree = "<group>"; };
 		BC9AFFC92227D8CD00C58A0C /* AttendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendViewModel.swift; sourceTree = "<group>"; };
@@ -327,6 +333,7 @@
 		5BEAA39E2219199F003352E9 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				BC0C9C3F2230FE9600919504 /* Refresh */,
 				5BA8BEBC22193FFC00B0CB17 /* Login */,
 				BC9AFFCE2227E41600C58A0C /* Attend */,
 			);
@@ -336,6 +343,7 @@
 		5BEAA39F221919A7003352E9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BC0C9C442230FF4600919504 /* Refresh */,
 				5BEAA3A1221919C0003352E9 /* Login */,
 				BC9AFFCB2227E36A00C58A0C /* Attend */,
 			);
@@ -382,6 +390,23 @@
 				1CCA46D0968EC7C61BD4F3A7 /* Pods-DDDUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BC0C9C3F2230FE9600919504 /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				BC0C9C402230FEA400919504 /* RefreshRequest.swift */,
+				BC0C9C422230FEE400919504 /* RefreshResponse.swift */,
+			);
+			path = Refresh;
+			sourceTree = "<group>";
+		};
+		BC0C9C442230FF4600919504 /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				BC0C9C452230FF5200919504 /* RefreshService.swift */,
+			);
+			path = Refresh;
 			sourceTree = "<group>";
 		};
 		BC9AFFC52227D89F00C58A0C /* Attend */ = {
@@ -685,6 +710,7 @@
 				5B360498222E6A6800C5F84E /* DeviceFontSizeLabel+iPhone5.swift in Sources */,
 				5BA8BEC22219403D00B0CB17 /* Encodable.swift in Sources */,
 				5BEAA3AD22191E8E003352E9 /* Request.swift in Sources */,
+				BC0C9C412230FEA400919504 /* RefreshRequest.swift in Sources */,
 				5B360496222E6A3600C5F84E /* DeviceFontSizeLabel+iPhone4.swift in Sources */,
 				5B360494222E68AA00C5F84E /* UIDevice.swift in Sources */,
 				5BEAA36922191818003352E9 /* LoginViewController.swift in Sources */,
@@ -705,6 +731,8 @@
 				5BEAA3A3221919D9003352E9 /* Network.swift in Sources */,
 				5BEAA3A922191D2F003352E9 /* ValidationError.swift in Sources */,
 				BC9AFFCD2227E37600C58A0C /* AttendService.swift in Sources */,
+				BC0C9C432230FEE400919504 /* RefreshResponse.swift in Sources */,
+				BC0C9C462230FF5200919504 /* RefreshService.swift in Sources */,
 				BC9AFFD222291C6000C58A0C /* AttendRequest.swift in Sources */,
 				5B360492222D29BA00C5F84E /* CommonAlert.swift in Sources */,
 				5BA8BEBE2219400800B0CB17 /* LoginReqeust.swift in Sources */,
@@ -885,7 +913,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VP4B82579F;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/DDD/Support FIles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -905,7 +933,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VP4B82579F;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/DDD/Support FIles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpView" customModule="DDD" customModuleProvider="target">
             <connections>
+                <outlet property="acceptButton" destination="cgD-Zc-chP" id="8cW-FC-gRz"/>
                 <outlet property="backgroundView" destination="Q0k-bs-oXJ" id="Km5-GQ-TEB"/>
                 <outlet property="descriptionLabel" destination="PaS-Rt-Piv" id="RNx-hA-FX0"/>
                 <outlet property="imageView" destination="sET-jY-phw" id="1sl-4J-Rf5"/>
@@ -48,7 +49,7 @@
                                         <constraint firstAttribute="width" secondItem="sET-jY-phw" secondAttribute="height" multiplier="1:1" id="J4G-QJ-fsa"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaS-Rt-Piv">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="PaS-Rt-Piv">
                                     <rect key="frame" x="0.0" y="142" width="145.5" height="55"/>
                                     <constraints>
                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="KNq-9V-4Qz"/>
