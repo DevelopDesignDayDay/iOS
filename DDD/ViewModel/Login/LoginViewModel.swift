@@ -95,9 +95,8 @@ class LoginViewModel: LoginViewModeling {
                 return loginService.login(param: param)
                     .catchError({ (error) -> Observable<APIResult<LoginResponse>> in
                         Observable.just(APIResult.Error(error))
-                    })
+                    }).observeOn(MainScheduler.instance)
                     .trackActivity(self.progressView)
-                    .observeOn(MainScheduler.instance)
                 
             }
         
