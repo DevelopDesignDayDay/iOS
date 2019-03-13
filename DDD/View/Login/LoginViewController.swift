@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButtonBgView: UIView!
     
     @IBOutlet weak var loginButton: UIButton!
-    
+        
     private var loginViewModel: LoginViewModeling!
     
     private let disposeBag = DisposeBag()
@@ -33,7 +33,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initView()
         loginViewModel = LoginViewModel(loginService: LoginService())
         setupRx()
     }
@@ -41,19 +40,25 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //splash.splash.animationSpeed
+        
         splash.splash.play { [unowned self] (isComplete) in
             self.splash.isHidden = true
             debugPrint("isPlay \(isComplete)")
         }
         
-        loginButton.layer.masksToBounds = true
-        loginButton.layer.cornerRadius = 6
-        configureShadow(to: loginButtonBgView)
+        initView()
+        
     }
     
     func initView() {
+        
+        loginButton.layer.masksToBounds = true
+        loginButton.layer.cornerRadius = 6
+        configureShadow(to: loginButtonBgView)
+        
         view.addSubview(splash)
         splash.pinEdgesToSuperView()
+        
     }
     
     func setupRx() {
@@ -75,8 +80,7 @@ class LoginViewController: UIViewController {
             .disposed(by: disposeBag)
         
         loginViewModel.loginResult
-            .subscribe(onNext: { [weak self] (response) in
-                guard let self = self else { return }
+            .subscribe(onNext: { [unowned self] (response) in
                 switch response {
                 case .Success(let data):
                     debugPrint("data \(data)")
@@ -84,9 +88,11 @@ class LoginViewController: UIViewController {
                     self.presentAttendViewController(to: data.user)
                     print(data.user)
                 case .Error(let error):
+                    CommonAlert.ShowApiErrorAlert(error: error, in: self)
                     debugPrint("error \(error)")
                 }
             }).disposed(by: disposeBag)
+        
         loginViewModel.emptyError
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [unowned self] (error) in
@@ -101,7 +107,7 @@ class LoginViewController: UIViewController {
                     self.loginButton.backgroundColor = UIColor.dddBlack
                     //self.loginButton.isEnabled = true
                 } else {
-                    self.loginButton.backgroundColor = UIColor.dddButtonGray
+                    self.loginButton.backgroundColor = UIColor.dddButtonGray  
                     //self.loginButton.isEnabled = false
                 }
                 

@@ -64,4 +64,8 @@ class UnderLineTextField: UITextField , UITextFieldDelegate {
         border.borderColor = lineColor.cgColor
     }
     
+    func validation() {
+        border.borderColor = UIColor.red.cgColor
+    }
+    
 }

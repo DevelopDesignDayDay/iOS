@@ -133,36 +133,22 @@ final class Network: Networking {
             
             var request: DataRequest
             
-            //var keyStoreError: NSError?
+            let user = "auth_id".localized
             
-            var authToken: String?
+            let password = "auth_pw".localized
             
-            //authToken = self.keychainStore.getValueForKeychain(key: "x-auth-token", errorKeychain: &keyStoreError)
+            let credentialData = "\(user):\(password)".data(using: String.Encoding.utf8)!
             
-            if let authToken = authToken {
-                
-                let headers: HTTPHeaders = ["x-auth-token": authToken]
-                
-                debugPrint(headers)
-                
-                if method == .get {
-                    request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters, headers: headers)
-                } else {
-                    request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
-                }
-                
+            let base64Credentials = credentialData.base64EncodedString()
+            
+            let headers: HTTPHeaders = ["Authorization": "Basic \(base64Credentials)"]
+            
+            if method == .get {
+                request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters, headers: headers)
             } else {
-                
-                debugPrint("no token")
-                
-                if method == .get {
-                    request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters)
-                } else {
-                    request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters, encoding: JSONEncoding.default)
-                }
-                
+                request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             }
-            
+        
             request
                 .debugLog()
                 .validate()
@@ -222,38 +208,22 @@ final class Network: Networking {
             
             var request: DataRequest
             
-            //var keyStoreError: NSError?
+            let user = "auth_id".localized
             
-            var authToken: String?
-            
-            /*
-            if url != "/socials/login" {
-                authToken = self.keychainStore.getValueForKeychain(key: "x-auth-token", errorKeychain: &keyStoreError)
-            }
-            */
-            
-            if let authToken = authToken {
+            let password = "auth_pw".localized
                 
-                let headers: HTTPHeaders = ["x-auth-token": authToken]
+            let credentialData = "\(user):\(password)".data(using: String.Encoding.utf8)!
                 
-                debugPrint(headers)
+            let base64Credentials = credentialData.base64EncodedString()
                 
-                if method == .get || method == .delete {
-                    request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters, headers: headers)
-                } else {
-                    request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
-                }
+            let headers: HTTPHeaders = ["Authorization": "Basic \(base64Credentials)"]
                 
+            debugPrint(headers)
+                
+            if method == .get || method == .delete {
+                request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters, headers: headers)
             } else {
-                
-                debugPrint("no token")
-                
-                if method == .get {
-                    request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters)
-                } else {
-                    request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters, encoding: JSONEncoding.default)
-                }
-                
+                request = self.alamoFireManager!.request(self.baseUrl+url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             }
             
             request.debugLog()
@@ -262,30 +232,10 @@ final class Network: Networking {
                     switch response.result {
                     case .success(let value):
                         debugPrint("200")
-                        
-                        if let headers = response.response?.allHeaderFields as? [String: String] {
-                            debugPrint("response Header \(headers)")
-                            var keychainSaveError: NSError?
-                            
-                            /*
-                            if let token = headers["x-auth-token"] {
-                                debugPrint("save token \(token)")
-                                self.keychainStore.setVauleForKeychain(value: token,
-                                                                       key: "x-auth-token",
-                                                                       errorKeychain: &keychainSaveError)
-                                UserDefaults.standard.set(true, forKey: "isLogin")
-                            }
-                            */
-                            
-                        }
-                        
                         observer.onNext(APIResult.Success(200))
                         observer.onCompleted()
                     case .failure(let error):
                         var apiError: ApiError
-                        //debugPrint("error")
-                        //debugPrint(error)
-                        
                         if let data = response.data {
                             apiError = self.parsingErrorBody(data: data)
                             //debugPrint("api Error : \(apiError)")
