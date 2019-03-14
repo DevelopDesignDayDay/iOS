@@ -39,8 +39,8 @@ target 'DDD' do
   pod 'IQKeyboardManagerSwift'
   pod 'TPKeyboardAvoiding', :git => 'https://github.com/michaeltyson/TPKeyboardAvoiding.git'
   pod 'SVProgressHUD'
-  pod 'MaterialTextField', '~> 1.0'
-
+  pod 'lottie-ios'
+  
   target 'DDDTests' do
     inherit! :search_paths
     # Pods for testing

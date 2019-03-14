@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        IQKeyboardManager.shared.enable = true
+        
         //Rx Resource Count
         #if DEBUG
         _ = Observable<Int>.interval(5, scheduler: MainScheduler.instance)
@@ -24,6 +27,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Resource count \(RxSwift.Resources.total)")
             })
         #endif
+        
+        let isLogin = UserDefaults.standard.string(forKey: "accessToken")
+        
+        if isLogin != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let attendViewController = storyboard.instantiateViewController(withIdentifier: "AttendViewController") as? AttendViewController else { fatalError("Invalid Identifier") }
+            attendViewController.isSplash = true
+            attendViewController.userId = UserDefaults.standard.integer(forKey: "userId")
+            attendViewController.userType = UserDefaults.standard.integer(forKey: "userType")
+            self.window?.rootViewController = attendViewController
+            self.window?.makeKeyAndVisible()
+        }
         
         return true
     }
