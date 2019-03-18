@@ -33,6 +33,11 @@ class AttendViewController: UIViewController {
         refreshPopUpBackgroundView.isHidden = true
     }
     
+    @IBAction func logoutButton(_ sender: UIButton) {
+        returnLoginViewController()
+    }
+    
+    
     private var attendViewModel = AttendViewModel(attendService: AttendService(), refreshService: RefreshService())
     private weak var shadowView: UIView?
     private let disposeBag = DisposeBag()
@@ -212,13 +217,17 @@ class AttendViewController: UIViewController {
                 self.showAnimation(to: popUpView)
             case .Error(let error):
                 debugPrint(error)
-                let domain = Bundle.main.bundleIdentifier!
-                UserDefaults.standard.removePersistentDomain(forName: domain)
-                UserDefaults.standard.synchronize()
-                let loginVC = self.storyboard?.instantiateViewController(withIdentifier: self.loginViewControllerIdentifier)
-                UIApplication.shared.keyWindow?.rootViewController = loginVC
+                self.returnLoginViewController()
             }
         }).disposed(by: disposeBag)
+    }
+    
+    private func returnLoginViewController() {
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: self.loginViewControllerIdentifier)
+        UIApplication.shared.keyWindow?.rootViewController = loginVC
     }
     
     private func setupAttendButton(by isSelected: Bool) {
