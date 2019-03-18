@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -184,46 +184,7 @@
                                                     <attributes>
                                                         <color key="NSColor" red="0.87058823529411766" green="0.37254901960784315" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <font key="NSFont" size="13" name="HelveticaNeue"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                            <tabStops>
-                                                                <textTab alignment="left" location="28">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="56">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="84">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="112">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="140">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="168">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="196">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="224">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="252">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="280">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="308">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="336">
-                                                                    <options/>
-                                                                </textTab>
-                                                            </tabStops>
-                                                        </paragraphStyle>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         <integer key="NSUnderline" value="1"/>
                                                         <color key="NSUnderlineColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     </attributes>
@@ -496,6 +457,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D81-Wf-LG1">
+                                <rect key="frame" x="307" y="40" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButton:" destination="lNE-12-y80" eventType="touchUpInside" id="Pa4-31-F29"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="DN0-R1-inJ">
                                 <rect key="frame" x="66.5" y="129.5" width="242.5" height="308"/>
                                 <subviews>
@@ -664,7 +632,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Oiw-te-tNU" firstAttribute="top" secondItem="DN0-R1-inJ" secondAttribute="bottom" constant="77" id="0Cw-Bm-PNR"/>
+                            <constraint firstItem="b4O-UO-tng" firstAttribute="trailing" secondItem="D81-Wf-LG1" secondAttribute="trailing" constant="20" id="0X5-Ub-qXr"/>
                             <constraint firstItem="DN0-R1-inJ" firstAttribute="centerX" secondItem="YBp-6L-uP1" secondAttribute="centerX" id="6Vm-In-Acl"/>
+                            <constraint firstItem="D81-Wf-LG1" firstAttribute="top" secondItem="b4O-UO-tng" secondAttribute="top" constant="20" id="AB7-7H-Wbu"/>
                             <constraint firstItem="b4O-UO-tng" firstAttribute="trailing" secondItem="Oiw-te-tNU" secondAttribute="trailing" constant="35" id="GhC-Lg-8Cw"/>
                             <constraint firstItem="Oiw-te-tNU" firstAttribute="centerX" secondItem="YBp-6L-uP1" secondAttribute="centerX" id="HOA-hf-DFY"/>
                             <constraint firstItem="DN0-R1-inJ" firstAttribute="centerY" secondItem="YBp-6L-uP1" secondAttribute="centerY" constant="-50" id="JWO-Yj-2Yp"/>
