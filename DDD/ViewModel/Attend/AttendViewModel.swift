@@ -70,7 +70,19 @@ class AttendViewModel: AttendViewModeling {
                     }
                     return true
                 }.flatMapLatest { (userId, number, accessToken) -> Observable<APIResult<AttendResponse>> in
-                    guard let number = Int(number) else { fatalError("Invalid Attend Number") }
+                    guard let number = Int(number) else {
+                      return Observable.just(
+                            APIResult.Error(
+                                ApiError(
+                                    date: nil,
+                                    errorCode: nil,
+                                    status: nil,
+                                    message: "invalid_attend_number".localized,
+                                    path: nil
+                                )
+                            )
+                        )
+                    }
                     let body = AttendRequest(userId: userId, number: number)
                     
                     let param = body.dictionary

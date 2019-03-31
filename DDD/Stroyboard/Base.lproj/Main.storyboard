@@ -184,46 +184,7 @@
                                                     <attributes>
                                                         <color key="NSColor" red="0.87058823529411766" green="0.37254901960784315" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <font key="NSFont" size="13" name="HelveticaNeue"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                            <tabStops>
-                                                                <textTab alignment="left" location="28">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="56">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="84">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="112">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="140">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="168">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="196">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="224">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="252">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="280">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="308">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="336">
-                                                                    <options/>
-                                                                </textTab>
-                                                            </tabStops>
-                                                        </paragraphStyle>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         <integer key="NSUnderline" value="1"/>
                                                         <color key="NSUnderlineColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     </attributes>
@@ -496,11 +457,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D81-Wf-LG1">
+                                <rect key="frame" x="97.5" y="586.5" width="180" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Sign out of your account" image="logout_btn">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutButton:" destination="lNE-12-y80" eventType="touchUpInside" id="Pa4-31-F29"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="DN0-R1-inJ">
-                                <rect key="frame" x="66.5" y="129.5" width="242.5" height="308"/>
+                                <rect key="frame" x="57" y="128.5" width="261.5" height="310"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0KC-tk-iZm">
-                                        <rect key="frame" x="15.5" y="0.0" width="211" height="211"/>
+                                        <rect key="frame" x="25" y="0.0" width="211" height="211"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="normalBlackRound" translatesAutoresizingMaskIntoConstraints="NO" id="1We-9K-lw8">
                                                 <rect key="frame" x="0.0" y="0.0" width="211" height="211"/>
@@ -537,10 +508,10 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="P1d-jH-4Eo">
-                                        <rect key="frame" x="0.0" y="241" width="242.5" height="67"/>
+                                        <rect key="frame" x="0.0" y="241" width="261.5" height="69"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="번호 입력해주세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aw5-MU-v8g">
-                                                <rect key="frame" x="39.5" y="0.0" width="163.5" height="26.5"/>
+                                                <rect key="frame" x="49" y="0.0" width="163.5" height="26.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -554,10 +525,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tf-j1-aWo">
-                                                <rect key="frame" x="0.0" y="35.5" width="242.5" height="31.5"/>
+                                                <rect key="frame" x="0.0" y="35.5" width="261.5" height="33.5"/>
                                                 <string key="text">라운드에 번호를 입력해주셔야 출석 체크 버튼이
 활성화가 되어 출석 체크가 가능합니다.</string>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
@@ -574,7 +545,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oiw-te-tNU">
-                                <rect key="frame" x="35" y="514.5" width="305" height="51"/>
+                                <rect key="frame" x="35" y="519.5" width="305" height="51"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYk-Xf-O6S">
                                         <rect key="frame" x="0.0" y="0.0" width="305" height="51"/>
@@ -663,16 +634,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Oiw-te-tNU" firstAttribute="top" secondItem="DN0-R1-inJ" secondAttribute="bottom" constant="77" id="0Cw-Bm-PNR"/>
+                            <constraint firstItem="Oiw-te-tNU" firstAttribute="top" secondItem="DN0-R1-inJ" secondAttribute="bottom" constant="81" id="0Cw-Bm-PNR"/>
                             <constraint firstItem="DN0-R1-inJ" firstAttribute="centerX" secondItem="YBp-6L-uP1" secondAttribute="centerX" id="6Vm-In-Acl"/>
                             <constraint firstItem="b4O-UO-tng" firstAttribute="trailing" secondItem="Oiw-te-tNU" secondAttribute="trailing" constant="35" id="GhC-Lg-8Cw"/>
                             <constraint firstItem="Oiw-te-tNU" firstAttribute="centerX" secondItem="YBp-6L-uP1" secondAttribute="centerX" id="HOA-hf-DFY"/>
+                            <constraint firstItem="D81-Wf-LG1" firstAttribute="top" secondItem="Oiw-te-tNU" secondAttribute="bottom" constant="16" id="IeW-ws-Jwu"/>
                             <constraint firstItem="DN0-R1-inJ" firstAttribute="centerY" secondItem="YBp-6L-uP1" secondAttribute="centerY" constant="-50" id="JWO-Yj-2Yp"/>
                             <constraint firstItem="b4O-UO-tng" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DN0-R1-inJ" secondAttribute="trailing" constant="30" id="QgU-ej-GWb"/>
                             <constraint firstItem="6d2-Y8-NvR" firstAttribute="leading" secondItem="b4O-UO-tng" secondAttribute="leading" id="SWb-wP-OMd"/>
                             <constraint firstItem="6d2-Y8-NvR" firstAttribute="trailing" secondItem="b4O-UO-tng" secondAttribute="trailing" id="d9x-Wy-ay6"/>
                             <constraint firstItem="6d2-Y8-NvR" firstAttribute="bottom" secondItem="YBp-6L-uP1" secondAttribute="bottom" id="nw6-GO-ObQ"/>
                             <constraint firstItem="6d2-Y8-NvR" firstAttribute="top" secondItem="YBp-6L-uP1" secondAttribute="top" id="vHj-cA-sb7"/>
+                            <constraint firstItem="D81-Wf-LG1" firstAttribute="centerX" secondItem="YBp-6L-uP1" secondAttribute="centerX" id="ydH-lo-2fq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b4O-UO-tng"/>
                     </view>
@@ -695,6 +668,7 @@
     </scenes>
     <resources>
         <image name="arrowBtn" width="25" height="13"/>
+        <image name="logout_btn" width="31" height="31"/>
         <image name="normalBlackRound" width="211" height="211"/>
         <image name="popupExclamationMarkIcon" width="120" height="120"/>
     </resources>
