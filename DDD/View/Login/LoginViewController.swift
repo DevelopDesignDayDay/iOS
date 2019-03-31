@@ -35,6 +35,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         loginViewModel = LoginViewModel(loginService: LoginService())
         setupRx()
+        setupLoginButtonShadowView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,14 +52,14 @@ class LoginViewController: UIViewController {
     }
     
     func initView() {
-        
+        view.addSubview(splash)
+        splash.pinEdgesToSuperView()
+    }
+    
+    private func setupLoginButtonShadowView() {
         loginButton.layer.masksToBounds = true
         loginButton.layer.cornerRadius = 6
         configureShadow(to: loginButtonBgView)
-        
-        view.addSubview(splash)
-        splash.pinEdgesToSuperView()
-        
     }
     
     func setupRx() {
