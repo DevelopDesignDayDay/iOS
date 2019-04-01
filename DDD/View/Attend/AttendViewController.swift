@@ -43,7 +43,7 @@ class AttendViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private let splash = SplashAnimationView()
     private var refreshAction: UIAlertAction!
-    private let loginViewControllerIdentifier = "LoginViewController"
+    private let initialViewControllerIdentifier = "InitialNavigationViewController"
     
     var userType: Int? {
         didSet {
@@ -226,8 +226,8 @@ class AttendViewController: UIViewController {
         let domain = Bundle.main.bundleIdentifier!
         UserDefaults.standard.removePersistentDomain(forName: domain)
         UserDefaults.standard.synchronize()
-        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: self.loginViewControllerIdentifier)
-        UIApplication.shared.keyWindow?.rootViewController = loginVC
+        let initialNaviVC = self.storyboard?.instantiateViewController(withIdentifier: self.initialViewControllerIdentifier)
+        UIApplication.shared.keyWindow?.rootViewController = initialNaviVC
     }
     
     private func setupAttendButton(by isSelected: Bool) {

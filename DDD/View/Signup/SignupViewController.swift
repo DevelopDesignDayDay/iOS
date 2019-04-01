@@ -43,14 +43,10 @@ class SignupViewController: UIViewController {
         signupViewModel = SignupViewModel(signupService: SignupService())
         setupRx()
         navigationBar.setValue(true, forKey: "hidesShadow")
+        setupSignUpButtonShadowView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        initView()
-    }
-    
-    func initView() {
+    private func setupSignUpButtonShadowView() {
         signupButton.layer.masksToBounds  = true
         signupButton.layer.cornerRadius = 6
         configureShadow(to: tapSignupBg)
@@ -209,7 +205,7 @@ class SignupViewController: UIViewController {
         
         cancelButton.rx.tap
             .subscribe(onNext: { [unowned self] _ in
-                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
             }).disposed(by: disposeBag)
     
         signupViewModel.signUpResult
@@ -257,7 +253,7 @@ class SignupViewController: UIViewController {
                 title: "확인",
                 style: UIAlertAction.Style.default,
                 handler: { action in
-                    self.dismiss(animated: false, completion: nil)
+                    self.navigationController?.popViewController(animated: true)
             })
         )
         
